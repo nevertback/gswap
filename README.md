@@ -9,7 +9,8 @@
 2. gulp dev  
 
 打包：  
-1.gulp pub
+1. gulp pub
+> 静态文件在dist目录下
   
 git：  
 1. git init
