@@ -1,0 +1,33 @@
+{{#extend "scss"}}
+{{#content "sprites"}}
+{{#each sprites}}
+${{name}}: ({{offset_x}}/100*1rem,{{offset_y}}/100*1rem,{{width}}/100*1rem,{{height}}/100*1rem);
+{{/each}}
+{{/content}}
+{{#content "spritesheet"}}
+.{{spritesheet.name}} {
+    background-image: url('{{{spritesheet.escaped_image}}}');
+    background-repeat: no-repeat;
+    background-size: {{spritesheet.width}}/100*1rem {{spritesheet.height}}/100*1rem;
+}
+@mixin sprite-width($sprite) {
+    width: nth($sprite, 3);
+}
+@mixin sprite-height($sprite) {
+    height: nth($sprite, 4);
+}
+@mixin sprite-position($sprite) {
+    $sprite-offset-x: nth($sprite, 1);
+    $sprite-offset-y: nth($sprite, 2);
+    background-position: $sprite-offset-x  $sprite-offset-y;
+}
+@mixin sprite($sprite) {
+    background-image: url('{{{spritesheet.escaped_image}}}');
+    background-repeat: no-repeat;
+@include sprite-position($sprite);
+@include sprite-width($sprite);
+@include sprite-height($sprite);
+    background-size: {{spritesheet.width}}/100*1rem {{spritesheet.height}}/100*1rem;
+}
+{{/content}}
+{{/extend}}

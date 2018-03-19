@@ -1,0 +1,298 @@
+//登录页样式
+.User-login{
+	padding-bottom: 20px;
+}
+.Ul-hd{
+	display: none;
+}
+.ymw-log-logo{
+	display: block;margin: 30px auto 19px;
+	width: 138px;height: 45px;
+	@extend %log-logo;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.Ul-bd{
+	margin: 0 15px;
+	.Ul-err{
+		display: none;
+	}
+	.Ul-input{
+		display: block;position: relative;
+		height: 66px;
+		background-color: #fff;
+		border-top: 1px solid #ddd;
+		@include flexbox();
+		@include ConCenV();
+		&.Ul-input-t{
+			border: 1px solid #ddd;
+			border-bottom: none;
+			@include bdrs(6px 6px 0 0);
+		}
+		&.Ul-input-b{
+			border: 1px solid #ddd;
+			@include bdrs(0 0 6px 6px);
+		}
+		.Ul-user,.Ul-pwd{
+			display: block;margin:0 17px;
+			width: 25px;min-width:25px;height: 29px;
+			background-repeat: no-repeat;
+			background-size:100% 100%;
+		}
+		.Ul-user{@extend %log-user;}
+		.Ul-pwd{@extend %log-psw;}
+		input{
+			display: block;margin-right: 17px;
+			width: 100%;
+			border: none;
+			outline: 0;
+		}
+		.UI-ipt-btn-showpsw{
+			display: block;position: absolute;right: 17px;top: 50%;margin-top: -12px;
+			height: 24px;line-height: 24px;
+			font-size: 15px;color: #333;
+		}
+		.UI-ipt-btn-clear{
+			display: none;position: absolute;right: 17px;top: 50%;margin-top: -10px;
+			width: 20px;height: 20px;
+			@extend %log-iptclear;
+			background-repeat: no-repeat;
+			background-size:100%;
+			&.cur{display: block;}
+		}
+	}
+	.Ul-btn{
+		margin: 27px 0 21px;
+		width: 100%;
+		a.Ul-button{
+			display: block;
+			width: 100%;height: 57px;line-height: 57px;
+			font-size: 23px;color: #fff;text-align: center;
+			background-color: #e7222a;
+			@include bdrs(6px);
+		}
+	}
+	.Ul-chk{
+		label{
+			display: none;
+		}
+		@include flexbox();
+		@include justifyCon();
+		.Ul-link{
+			font-size: 17px;color: #555;
+			&.Ul-link-b{color: #0e78c0;}
+		}
+	}
+	.UI-st{
+		margin: 15px 0;
+		height: 26px;
+		@include flexbox();
+		@include ConCenV();
+		span{
+			display: block;
+			min-width: 120px;width: 120px;
+			font-size: 15px;color: #777;text-align: center;
+		}
+		.UI-st-line{
+			width: 100%;height: 1px;
+			background-color: #ccc;
+		}
+	}
+	.Ul-st-btn{
+		@include flexbox();
+		@include ConCen();
+		a{
+			display: block;padding: 0 12px;
+			width: 66px;height: 66px;			
+			i{
+				display: block;
+				width: 100%;height: 100%;				
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size:auto 23px;
+				border: 1px solid #ccc;
+				box-sizing:border-box;
+				@include bdrs(40px);
+			}
+			&.Ul-qq i{@extend %log-qq;}
+			&.Ul-sina i{@extend %log-wb;}
+			&.Ul-wx i{@extend %log-wx;}
+		}
+	}
+}
+
+.gs_zp_pop_msk{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.9);
+	z-index: 9999998;
+}
+.gs_zp_pop{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 9999999;
+	background-color: #fff;
+	transform:translate3d(-50%,-50%,0);
+	border-radius: 0.1rem;
+	overflow: hidden;
+	.gs_head{
+		height: 1.2rem;
+		line-height: 1.2rem;
+		font-size: 0.4rem;
+		color: #333;
+		text-align: center;
+		background-color: #f2f2f3;
+		font-weight: bold;
+	}
+}
+.gs_zp_pop_del {
+	width: 6.88rem;
+	height: 4.38rem;
+	.gs_txt{
+		padding: 0.5rem 0.3rem;
+		height: 1rem;
+		line-height: 0.5rem;
+		font-size: 0.3rem;
+		color: #333;
+		text-align: center;
+		@include flexbox;
+		@include ConCen;
+	}
+	.gs_btns{
+		padding:0 0.3rem;
+		height: 0.78rem;
+		@include flexbox;
+		@include justifyCon;
+		a{
+			display: block;
+			width: 3.02rem;
+			height: 0.78rem;
+			line-height: 0.78rem;
+			font-size: 0.3rem;
+			text-align: center;
+			box-sizing: border-box;
+			border-radius: 0.1rem;
+			transition:all 0.1s ease;
+			&.cancel{
+				background-color: #f2f2f3;
+				color: #999;
+				border: 0.02rem solid #ddd;
+			}
+			&.confirm{
+				background-color: #2aae68;
+				color: #fff;
+			}
+			&:active{
+				transform:scale(0.97);
+			}
+		}
+	}
+}
+.gs_zp_pop_login{
+	width: 6.88rem;
+	height: 7.88rem;
+	.gs_body{
+		padding-top: 0.4rem;
+		.Ul-bd{
+			.Ul-input{
+				height: 0.95rem;
+				&.Ul-input-t{
+					border: 0.02rem solid #ddd;
+					border-bottom: none;
+					border-radius: 0.15rem 0.15rem 0 0;
+				}
+				&.Ul-input-b{
+					border: 0.02rem solid #ddd;
+					border-radius: 0 0 0.15rem 0.15rem;
+				}
+				.Ul-user,.Ul-pwd{
+					margin:0 0.4rem 0 0.5rem;
+					width: 0.42rem;min-width: 0.42rem;height: 0.5rem;
+				}
+				input{
+					display: block;margin-right:0.23rem;
+					width: 100%;
+					border: none;
+					outline: 0;
+					font-size: 0.3rem;
+					color: #000;
+					font-weight: bold;
+				}
+				.UI-ipt-btn-showpsw{
+					right: 0.23rem;top: 50%;margin-top: -0.12rem;
+					height: 0.24rem;line-height: 0.24rem;
+					font-size: 0.3rem;color: #999;
+					font-weight: bold;
+				}
+				.UI-ipt-btn-clear{
+					right: 0.23rem;margin-top: -0.15rem;
+					width: 0.30rem;height: 0.30rem;
+				}
+			}
+			.Ul-btn{
+				margin: 0.3rem 0 0.2rem;
+				a.Ul-button{
+					height: 0.78rem;line-height: 0.78rem;
+					font-size:0.3rem;
+					background-color: #2aae68;
+					font-weight: bold;
+					border-radius: 0.1rem;
+				}
+			}
+			.Ul-chk{
+				height: 0.4rem;
+				.Ul-link{
+					font-size: 0.26rem;color: #999;
+					font-weight: bold;
+					&.Ul-link-b{color: #0e78c0;}
+				}
+			}
+			.UI-st{
+				margin: 0.3rem 0;
+				height: 0.5rem;
+				span{
+					display: block;
+					min-width: 2.1rem;width: 2.1rem;
+					font-size: 0.26rem;color: #999;
+					font-weight: bold;
+				}
+				.UI-st-line{
+					background-color: #d9d9d9;
+				}
+			}
+			.Ul-st-btn{
+				a{
+					padding: 0 0.15rem;
+					width: 1rem;height: 1rem;
+					i{
+						display: block;
+						width: 100%;height: 100%;
+						background-repeat: no-repeat;
+						background-position: center center;
+						background-size:auto 0.4rem;
+						border: 0.02rem solid #d9d9d9;
+						box-sizing:border-box;
+						border-radius: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+.gs_zp_myscore .gs_zp_myscore_comment .comm_con.hideMoreContent:after,.remark_inner_floors .remark_ir_issue.hideTxt:after,
+.remark_main .issue.hideTxt:after,
+.remark_main .remark_ir_issue.hideTxt:after{
+	display:block;
+	content:'';
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:.67rem;
+	background:url(http://image.gamersky.com/webimg15/zp/wap/mask-txt.png) 0 0 repeat;
+	background-size:auto 100%;
+}

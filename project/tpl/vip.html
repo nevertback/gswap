@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <title>唯品会</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+</head>
+
+<body>
+<script type="text/javascript">
+    !function() {
+        if (typeof String.prototype.endsWith != 'function') {
+            String.prototype.endsWith = function(suffix) {
+                return this.indexOf(suffix, this.length - suffix.length) !== -1;
+            };
+        }
+
+        //获取参数
+        var getQueryString = function(name) {
+            var re = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', "i");
+            var m = location.search.slice(1).match(re);
+            var v = m ? m[2] : '';
+            return (v == '' || isNaN(v)) ? decodeURIComponent(v) : v - 0;
+        }
+
+        var ua = navigator.userAgent;
+        var beginTime = (new Date()).getTime();
+        var urlRex = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+
+        //基础数据
+        var base = {
+            sStr : location.search.slice(1),
+            isSafari : ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 1,
+            iPhoneVersion : ua.match(/OS ([5-9])_\d[_\d]* like Mac OS X/i),
+            isUC : /UCBrowser/.test(ua),
+            isChrome : /Chrome/.test(ua),
+            isWeiXin: /MicroMessenger/.test(ua),
+            isIPad: ua.indexOf("iPad"),
+            isIPod: ua.indexOf("iPod"),
+            isIPhone : ua.indexOf('iPhone'),
+            isAndroid : ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1, //android终端,
+            isIOS: !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),                 //ios终端,
+            requestUrl: "http://api.union.vip.com/dl/deeplinkH5Info",           //发送后台接口
+            webHome:"http://m.vip.com",
+            webUrl: getQueryString("dest_url"),
+            traFrom: getQueryString("tra_from"),
+            linkUrl: getQueryString("link_url"),
+            appUrl: "vipshop://goHome?f="+ encodeURIComponent("fx") +"&tra_from=" + encodeURIComponent(getQueryString("tra_from"))
+        }
+
+
+        //唤起
+        var deepLink = {
+            init: function() {
+                var _this = this;
+                _this.openUrl();
+            },
+            openUrl: function() {
+                var _this = this;
+                //发送数据
+                _this.requestSevice();
+                //没有参数直接去到首页
+                if(!base.sStr || !base.webUrl || (!base.traFrom&&!base.linkUrl)){
+                    _this.locationHref(base.webHome);
+                    return;
+                }
+
+                var baseWebUrlStr = decodeURIComponent(base.webUrl);
+                var linkUrlStr = base.linkUrl;
+                var hostUrlarray = baseWebUrlStr.match(/^http[s]{0,1}:\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/);
+                var hostUrlStr;
+                if(hostUrlarray){
+                    hostUrlStr = hostUrlarray[0];
+                }
+                //首先判断是否细页面唤醒（link_url）
+                if(linkUrlStr!=''&&linkUrlStr.indexOf("vipshop://") == 0){
+                    //是否移动设备
+                    if(base.isIOS || base.isAndroid){
+                        //iframe唤起APP　
+                        _this.iframeOpenUrl(linkUrlStr);
+                    }else{
+                        //判断是否内部域
+                        if(hostUrlStr && (hostUrlStr.endsWith(".vip.com") || hostUrlStr.endsWith(".vipshop.com") || hostUrlStr.endsWith(".appvipshop.com"))){
+                            //跳转到相应的落地页
+                            _this.locationHref(base.webUrl);
+                        }else{
+                            //跳转到首页
+                            _this.locationHref(base.webHome);
+                        }
+                    }
+                }else if(hostUrlStr && (hostUrlStr.endsWith(".vip.com") || hostUrlStr.endsWith(".vipshop.com") || hostUrlStr.endsWith(".appvipshop.com"))){
+                    //唤醒到主页
+                    //是否移动设备
+                    if(base.isIOS || base.isAndroid){
+                        //iframe唤起APP　
+                        _this.iframeOpenUrl(base.appUrl);
+                    }else{
+                        //跳转到相应的落地页　
+                        _this.locationHref(base.webUrl);
+                    }
+                }else{
+                    _this.locationHref(base.webHome);
+                }
+            },
+            getDevice:function(){
+                var device = "other";
+                if(base.isIOS){
+                    device = "IOS";
+                }else if(base.isAndroid){
+                    device = "Android";
+                }
+                return device;
+            },
+            requestSevice:function(){
+                var _this = this;
+                var img = new Image();
+                var device = _this.getDevice();
+                var endTime = (new Date()).getTime();
+                var requestUrl = base.requestUrl + "?beginTime=" + beginTime + "&endTime=" + endTime + "&device=" + device;
+                img.src = requestUrl;
+            },
+            iframeOpenUrl: function(url) {
+                var _this = this;
+                var ifm = document.createElement('iframe');
+                ifm.frameborder = '0';
+                ifm.style.cssText = 'display:none;border:0;width:0;height:0;';
+                document.body.appendChild(ifm);
+                ifm.src = url;
+
+                //直接跳，解决android 回退问题
+                _this.locationHref(base.webUrl);
+            },
+            localOpenUrl: function() {
+                var _this = this;
+                //app
+                location.href = base.appUrl;
+                //m站
+                setTimeout(function() {
+                    _this.locationHref(base.webUrl);
+                }, 2000);
+            },
+            locationHref:function(href){
+                var _this = this;
+                var tmpHostUrlarray = href.match(/http[s]{0,1}:\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/);
+                var tmpHostUrlStr;
+                if(tmpHostUrlarray){
+                    tmpHostUrlStr = tmpHostUrlarray[0];
+                }
+
+                //判断是否为合法URL，不合法跳转到M站首页
+                if (href.match(urlRex) && tmpHostUrlStr && (tmpHostUrlStr.endsWith(".vip.com") || tmpHostUrlStr.endsWith(".vipshop.com") || tmpHostUrlStr.endsWith(".appvipshop.com"))){
+                    location.href =  href;
+                }else{
+                    location.href =  base.webHome;
+                }
+            }
+        }
+
+        deepLink.init();
+    }();
+
+</script>
+</body>
+
+</html>

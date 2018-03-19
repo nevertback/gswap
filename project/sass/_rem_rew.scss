@@ -1,0 +1,257 @@
+.layoutWithRem{
+	//内容页
+	.ymw-contxt{
+		padding:0 0.25rem 0.4rem;
+		margin-bottom: 0.15rem;
+		&.ymw-contxt-pc{
+			padding-top:0.1rem;
+		}
+		.gs_bot_author{
+			height:0.6rem;
+			line-height: 0.6rem;
+			font-size: 0.22rem;
+		}
+		.ymw-contxt-aside{
+			padding: 0.35rem 0;
+			h1{
+				margin-bottom: 0.1rem;
+				line-height: 0.5rem;
+				font-size: 0.4rem;
+			}
+			span{
+				line-height: 0.5rem;
+				font-size: 0.24rem;
+			}
+			.yu-icon-cmt{
+				display: block;position: absolute;padding-left: 0.45rem;bottom:0.35rem;right: 0;
+				height: 0.5rem;line-height:0.5rem;
+				font-size: 0.28rem;
+				background-size: 0.33rem 0.22rem;
+			}
+		}
+		article{
+			padding: 0 0 0.4rem;
+			h5{
+				margin: 0.15rem 0 0.1rem;
+				height: 0.7rem;
+				line-height: 0.7rem;
+				font-size: 0.36rem;
+			}
+			p{
+				padding: 0.1rem 0;
+				line-height: 0.5rem;
+				font-size: 0.3rem;
+				.fc{
+					font-size: 0.26rem;
+				}
+			}
+			.title1{
+				padding: 0.2rem 0.5rem 0.2rem 0.25rem;margin: 10px 0;
+				line-height: 0.5rem;
+				border-left-width: 0.1rem;
+				font-size: 0.3rem;
+				border-radius: 0 0.1rem 0.1rem 0;
+			}
+			.ymw-c-des{
+				padding: 0.2rem 0.3rem;
+				border-radius: 0.1rem;
+				p{
+					line-height:0.45rem;
+					font-size:0.24rem;
+				}
+			}
+			table,.table1,.table2 {font-size:0.26rem;}
+			.table1 td,.table2 td {padding:0.1rem;}
+		}
+		.yu-pages{
+			margin-top: 0.25rem;
+			.yu-btnwrap{
+				@include flexbox;
+				width: 100%;height: 0.8rem;line-height: 0.8rem;
+				a,span{
+					display: block;
+					height: 0.8rem;line-height: 0.8rem;
+					border: 1px solid #ddd;
+					box-sizing: border-box;
+				}
+				a{
+					min-width: 33%;width: 100%;
+					font-size: 0.3rem;
+				}
+				span{
+					min-width: 33%;width: 100%;
+					font-size: 0.3rem;
+					border-left: none;
+					border-right: none;
+				}
+			}
+		}
+	}
+	//手游列表 单行4个
+	.ymw-list-mgame4{
+		li{
+			float: left;
+			width:1.75rem;
+			a.ymw-list-mgame4-games{
+				display: block;margin-bottom: 0;
+				width:1.75rem;
+				img{
+					width: 1.4rem;
+					height: 1.4rem;
+					border-radius: 0.1rem;
+				}
+				span{
+					width: 1.75rem;
+					height: 0.8rem;line-height: 0.8rem;
+					font-size: 0.24rem;
+				}
+			}
+		}
+	}
+	//相关手游
+	.ymw-rel-mgame{
+		margin: 0.15rem 0;padding:0 0.25rem 0.1rem;
+		.ymw-list-mgame4{
+			margin: 0 0 0 -0.1rem;
+			width: 7.2rem;
+		}
+	}
+	// 作者
+	aside.ymw-pctop {
+		border-width:0.05rem;
+		.ymw-ar-img {
+			position: absolute;left: 0.25rem;bottom: -0.5rem;
+			padding: 0.05rem;
+			width: 0.8rem; height: 0.8rem;
+			border-width:0.05rem;
+			&:after {
+				top: 0.5rem;
+				left:-0.2rem;
+				width: 1.2rem;
+				height: 0.5rem;
+			}
+			img {
+				width: 0.8rem;
+				height: 0.8rem;
+				border-radius: 50%;
+				box-shadow: 0 0.02rem 0.05rem rgba(0, 0, 0, 0.25);
+			}
+		}
+		.ymw-ar-tit {
+			left: 1.3rem;
+			bottom: 0;
+			height: 0.4rem;line-height: 0.4rem;
+			font-size: 0.24rem;
+		}
+		.ymw-pctop-mask{
+			position: absolute;left: 0;bottom: 0;
+			width: 100%;height: 34px;
+			@extend %ymw-pctop-mask;
+			background-repeat: repeat-x;
+		}
+	}
+
+	.pingce2{
+		position:relative;margin:0;
+		width:100%; height:auto;
+		border-radius:0.1rem;
+		overflow: hidden;
+		img{
+			display: block;position:absolute; left:0; top:0;
+			width: 100%;height: auto;
+		}
+		.pc{
+			position: relative;
+			width:100%; height:auto;
+			.pc1 {
+				width:100%; background:url(http://image.gamersky.com/webimg15/www/review/pc_01.png) 0 bottom repeat-x;
+				background-size: auto 3.13rem;
+				.pc1_num {
+					margin:0 auto; padding:2.25rem 0.25rem 0; width:auto;text-align:center;
+					.txt1 {
+						height:0.65rem;
+						line-height:0.65rem;
+						font-size:0.5rem;
+						text-shadow: 0 0.05rem 0.1rem rgba(7,0,2,0.5);
+					}
+					.txt2 {
+						padding-bottom: 0.2rem;
+						height:0.4rem;
+						line-height:0.4rem;
+						font-size: 0.3rem;
+						text-shadow: 0 0.05rem 0.1rem rgba(7,0,2,0.5);
+					}
+					.pnum {
+						margin:0 auto 0.25rem;
+						width:1.6rem; height:1.6rem; line-height:1.6rem;
+						font-size:0.5rem;
+						background:url(http://image.gamersky.com/webimg13/wap/m-pf.png) no-repeat;background-size: 30.4rem 1.6rem;
+					}
+					$basepos:1.6rem;
+					.pnum.n1,.pnum.n1-0 {background-position:0 0;}
+					.pnum.n1-5 {background-position:-$basepos*1 0;}
+					.pnum.n2,.pnum.n2-0 {background-position:-$basepos*2 0;}
+					.pnum.n2-5 {background-position:-$basepos*3 0;}
+					.pnum.n3,.pnum.n3-0 {background-position:-$basepos*4 0;}
+					.pnum.n3-5 {background-position:-$basepos*5 0;}
+					.pnum.n4,.pnum.n4-0 {background-position:-$basepos*6 0;}
+					.pnum.n4-5 {background-position:-$basepos*7 0;}
+					.pnum.n5,.pnum.n5-0 {background-position:-$basepos*8 0;}
+					.pnum.n5-5 {background-position:-$basepos*9 0;}
+					.pnum.n6,.pnum.n6-0 {background-position:-$basepos*10 0;}
+					.pnum.n6-5 {background-position:-$basepos*11 0;}
+					.pnum.n7,.pnum.n7-0 {background-position:-$basepos*12 0;}
+					.pnum.n7-5 {background-position:-$basepos*13 0;}
+					.pnum.n8,.pnum.n8-0 {background-position:-$basepos*14 0;}
+					.pnum.n8-5 {background-position:-$basepos*15 0;}
+					.pnum.n9,.pnum.n9-0 {background-position:-$basepos*16 0;}
+					.pnum.n9-5 {background-position:-$basepos*17 0;}
+					.pnum.n10 {background-position:-$basepos*18 0;}
+				}
+			}
+			.pc2 {
+				padding:0 0.25rem;
+				background: none;
+				background-color: #2d2c2e;
+				.like{
+					padding:0.2rem 0; height:auto;
+					span {
+						width: auto;
+						height: auto;
+						line-height:0.5rem;
+						text-indent:0.55rem;
+						font-size: 0.3rem;
+						&.jia {
+							background:url(http://image.gamersky.com/webimg13/wap/2018/pc-add.png) 0 0.1rem no-repeat;
+							background-size: 0.3rem 0.3rem;
+						}
+						&.jian {
+							background:url(http://image.gamersky.com/webimg13/wap/2018/pc-re.png) 0 0.22rem no-repeat;
+							background-size: 0.3rem 0.06rem;
+						}
+					}
+					&.lk1 {border-top:1px solid #4a4c51;}
+					&.lk2 {border-top:1px dotted #393a3e; border-bottom:1px solid #000;}
+				}
+				.tuijian,.pingtai{
+					padding:0.2rem 0 0.2rem 0.7rem;
+					height:auto; line-height:0.46rem;
+					color:#aaa; font-size:0.26rem; font-family:SimSun;
+					border-top:1px solid #4a4c51; border-bottom:1px solid #000;
+					background:url(http://image.gamersky.com/webimg13/wap/m-rq.png) 0 0.25rem no-repeat;
+					background-size: 0.5rem auto;
+				}
+				.pingtai {
+					border-bottom: none;
+					background:url(http://image.gamersky.com/webimg13/wap/m-pt.png) 0 0.23rem no-repeat;background-size: 0.48rem auto;
+				}
+			}
+			.pc3 {
+				width:6.7rem; height:0.8rem; line-height:0.8rem;
+				background:#2d2c2e url(http://image.gamersky.com/webimg13/wap/2018/pc-bot.png) 0 0 no-repeat;
+				background-size: 6.7rem 0.8rem;
+				font-size: 0.312rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,471 @@
+%clearfix{
+	&:before,&:after{display: table;content: " ";}
+	&:after{clear: both;}
+}
+@mixin chuizhi(){
+	position: absolute;top: 50%;
+	transform:translate3d(0,-50%,0);
+}
+//flex
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin justifyCon(){
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+//完全居中
+@mixin ConCen(){
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+//垂直居中
+@mixin ConCenV(){	
+	-webkit-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -webkit-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -webkit-order: $val;  
+  order: $val;
+}
+//flex end
+// border-rudius
+@mixin bdrs($val){
+	-webkit-border-radius: $val;
+	border-radius: $val;
+}
+//缓动
+@mixin trans($time:0.25s,$ease:ease-out){
+	-webkit-transition: all $time $ease;
+	transition: all $time $ease;
+}
+@mixin bxsh($h,$v,$b,$c){
+	-webkit-box-shadow: $h $v $b $c;
+	box-shadow: $h $v $b $c;
+}
+// 水平渐变，从左往右
+// @include gradient-horizontal(#333, #ccc);
+@mixin gradient-horizontal($gradient...){
+  background-image: -webkit-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 水平渐变，从左往右，平铺
+// @include gradient-horizontal-repeating(#333 5%, #ccc 10%);
+@mixin gradient-horizontal-repeating($gradient...){
+  background-image: -webkit-repeating-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: repeating-linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 垂直渐变，从上往下
+// @include gradient-vertical(#333 30%, #ccc);
+@mixin gradient-vertical($gradient...) {
+  background-image: -webkit-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 垂直渐变，从上往下，平铺
+// @include gradient-vertical-repeating(#333 30%, #ccc 50%);
+@mixin gradient-vertical-repeating($gradient...) {
+  background-image: -webkit-repeating-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: repeating-linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 角度渐变
+// @include gradient-angle(45deg, #333 30%, #ccc);
+@mixin gradient-angle($gradient...) {
+  background-image: -webkit-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+  background-image: linear-gradient($gradient); // Standard, IE1
+}
+// 角度渐变
+// @include gradient-angle(45deg, #333 30%, #ccc 50%);
+@mixin gradient-angle-repeating($gradient...) {
+  background-image: -webkit-repeating-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+  background-image: repeating-linear-gradient($gradient); // Standard, IE1
+}
+// 径向渐变，可以写点简单的
+// 如：@include gradient-radial(#00F,#FFF);
+// 而@include gradient-radial(farthest-side circle at right,#00F,#FFF);这种的将不会兼容，所以不要调用这个，可以去找工具生成
+@mixin gradient-radial($gradient...){
+  background-image: -webkit-radial-gradient($gradient); // Safari 5.1+, Chrome 10+
+  background-image: radial-gradient($gradient); // Standard, IE1
+  background-repeat: no-repeat;
+}
+*{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.mt8{margin-top: 8px;}
+.mb8{margin-bottom: 8px;}
+.mb14{margin-bottom: 14px;}
+a,.ymwSearchBtn,.ymw-peizhi .ymwTab .ymwTabNav .swiper-slide{
+	text-decoration: none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.clearfix{
+	@extend %clearfix;
+}
+h1,h2,h3,h4,h5,h6,p,ul,li{
+	margin: 0;padding: 0;
+}
+ul,dl,ol{
+	list-style: none;
+}
+body{
+	font-family: 'STHeiti','Microsoft YaHei',Helvetica,Arial,sans-serif;
+	background-color: #f2f2f3;
+}
+html,body{
+	&.hideScroll{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+}
+.yu-danger{color: #e7222a !important;}
+.ymw-more{
+	@include flexbox;
+	@include ConCen;
+	height: 46px;
+	i{
+		display: block;margin-right: 3px;
+		width: 14px;height: 14px;
+		@extend %icons-more-r;
+		background-repeat: no-repeat;
+		background-size:100%;
+	}
+	span{
+		display: block;
+		height: 20px;line-height:22px;
+		font-size: 17px;text-align: center;color: #d3222a;
+	}
+	&.ymw-more-b{
+		@include bdrs(3px);
+		span{color: #333;}
+		i{
+			@extend %icons-more-b;
+		}
+	}
+	&.ymw-more-loading{
+		span{color: #a3a3a3;}
+		i{
+			@extend %icons-loading;
+		}
+	}
+	&.ymw-more-bg{
+		margin-top: 18px;
+		background-color: #f2f2f3;
+	}
+	&.ymw_more_nomargin{
+		margin: 0;
+	}
+	&.ymw_list_mgame_choice_more{
+		margin: 0 14px 14px;
+	}
+}
+.ymw-title-lev2{
+	position: relative;
+	padding: 0.28rem 0.25rem 0.2rem;
+	height: 0.6rem;
+	background-color: #FFF;
+	span{
+		position: relative;display: block;padding-left: 0.25rem;
+		height: 0.6rem;
+		font-size: 0.33rem;font-weight: bold;color: #333;
+        @include flexbox();
+        @include ConCenV();
+		&:after{
+            display: block;
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 50%;
+            width: 0.07rem;
+            height: 0.26rem;
+            background-color: #e7222a;
+            transform: translate(0,-50%);
+        }
+	}
+	a{
+		//display: block;
+        position: absolute;top: 0.28rem;right: 0.25rem;
+		height: 0.6rem;
+        font-size: 0.24rem;color: #999;font-weight: normal;
+        @include flexbox();
+        @include ConCenV();
+	}
+}
+.ymw-star{
+	display: block;position: relative;
+	width: 65px;height: 11px;
+	@extend %sprite-star;
+	background-repeat: no-repeat;
+	background-size:65px auto;
+	@for $i from 0 through 10 {
+		&.ymw-star#{$i}{background-position: 0 #{0 - $i * 15}px;}
+	}
+	i{
+		display: block;position: absolute;left: 70px;top: -1px;
+		width: 120px;height: 12px;line-height: 12px;
+		font-size: 12px;color: #333;font-style: normal;
+	}
+}
+
+.ymw-bdshare{
+	#bdshare{
+		float: none;padding: 0;margin: 0;
+		@include flexbox();
+		@include ConCen();
+		.bds_more,.shareCount{
+			display: none;
+		}
+		a{
+			display: block;float: none;padding: 0;margin: 0 16px;
+			width: 51px;height: 51px;
+			background: none;	
+			background-repeat: no-repeat;
+			background-position: center center !important;
+			background-size:auto 23px;	
+			@include bdrs(30px);
+			&.bds_tsina{
+				background-color: #e5450d;
+				@extend %icons-c-wb;		
+			}
+			&.bds_sqq{
+				background-color: #2c83c0;
+				@extend %icons-c-qq;				
+			}
+			&.bds_qzone{
+				background-color: #d9a11a;
+				@extend %icons-c-qz;				
+			}
+		}
+	}	
+}
+.ymw-backtotop{
+	position: fixed;bottom: 2.0rem;right: 0.25rem;z-index: 99999;
+	@include trans();
+	opacity: 0;visibility: hidden;
+	a{
+		display: block;
+        position: relative;
+		width: 0.7rem;height: 0.7rem;line-height: 0.7rem;
+		background-color: rgba(2,2,2, 0.6);
+		background-repeat: no-repeat;
+		background-position: center center;
+		font-size: 0.20rem;color: #fff;text-align: center;
+		@include bdrs(0.4rem);
+		&.ymw-btt-btn{
+            &:after{
+                display: block;
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0.37rem;
+                height: 0.21rem;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size:100% 100%;
+                @extend %back-top-new;
+                transform: translate(-50%,-50%);
+            }
+		}
+		&.ymw-btc-btn{
+            margin-top: 0.2rem;
+		}
+		&.ymw-opn-btn{
+			margin-top: 0.2rem;
+            &:after{
+                display: block;
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0.27rem;
+                height: 0.24rem;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size:100% 100%;
+                @extend %ymw-ani-fix;
+                transform: translate(-50%,-50%);
+            }
+		}
+	}
+	&.cur{
+		opacity: 1;visibility: visible;
+	}
+}
+@media (max-width:320px){
+	.ymw-backtotop{bottom: 80px;}
+	.ymw-backtotop a{width: 36px;height: 36px;line-height: 36px;}
+	.ymw-backtotop a.ymw-btt-btn{background-size: 18px auto;}
+}
+.html-lock-test {
+    overflow-y: hidden !important;
+}
+.ymw-androidWap{
+	.ymw-iosOnly{
+		display: none !important;
+	}	
+}
+.ymw-iOsWap{
+	.ymw-androidOnly{
+		display: none !important;
+	}
+}
+.ymwTabNav{
+	-webkit-user-select: none;
+	user-select: none;
+	outline: 0;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+@media screen and (orientation: portrait){
+	.hengping{display: none;}
+} 
+@media screen and (orientation: landscape) and (min-width: 480px) {
+	.hengping{
+		position: fixed;top: 0;left: 0;z-index: 100000;
+		width: 100%;height: 100%;
+		background:rgba(0,0,0,0.9) url('http://img1.gamersky.com/image2016/02/20160224_zl_91_2/hengping.png') center center no-repeat;
+		background-size:contain;
+	}
+}
+
+
+.ymw-tab-three{
+	position: relative;
+}
+#loading{
+	position: absolute;top: 0;left: 0;
+	width: 100%;height: 100%;min-height:2000px;
+	background-color: #fff;
+	z-index: 99993;
+	.loading-bar{
+		position: absolute;top: 0;left: 0;
+		width: 0;height: 4px;
+		background-color: #e7222a;
+	}
+	.loading-txt{
+		position: absolute;top: 20px;left: 0;
+		width: 100%;height: 40px;line-height: 40px;
+		font-size: 12px;text-align: center;color: #333;
+	}
+}
+//04.14 更新
+.bdshare_popup_box{
+	display: none !important;
+}
+.ymw-bdshare-new{
+    position: relative;
+	margin-top: 0.3rem;
+	border-top: 1px solid #e5e5e5;
+    @extend %clearfix;
+    .ymw-bdshare-new-tit{
+        padding-top: 0.4rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        font-size: 0.24rem;
+        color: #666;
+    }
+    .bdshare{
+        position: absolute;
+        left: 1.28rem;
+        top: 0.4rem;
+        @extend %clearfix;
+        a{
+            display: block;
+            margin: 0 0.95rem 0 0;
+            padding: 0;
+            float: left;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-position: 0 0;
+            background-size:100% 100%;
+            &.bds_count{display: none;}
+            &.bds_tsina{@extend %ymw-bds-wb;}
+            &.bds_sqq{@extend %ymw-bds-qq;}
+            &.bds_qzone{@extend %ymw-bds-qz;}
+            &.bds_more{@extend %ymw-bds-more;margin-right: 0;}
+        }
+    }
+}
+.ymw-loginpopMsk{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999997;
+    background-color: rgba(0,0,0,0.5);
+}
+.ymw-loginpop{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -3rem;
+    margin-top: -1.7rem;
+    width: 6rem;
+    height: 3.4rem;
+    background-color: #fff;
+    z-index: 999998;
+    border-radius: 0.25rem;
+    h5{
+        padding-top: 0.34rem;
+        margin-bottom: 0.2rem;
+        line-height: 0.55rem;
+        font-size: 0.3rem;
+        color: #000;
+        text-align: center;
+    }
+    p{
+        margin-bottom: 0.28rem;
+        line-height: 0.45rem;
+        font-size: 0.24rem;
+        color: #888;
+        text-align: center;
+        span{
+            position: relative;
+            &:before,&:after{
+                display: block;
+                position: absolute;
+                content: '';
+                top: 50%;
+                width: 0.48rem;
+                height: 1px;
+                background-color: #ccc;
+            }
+            &:before{left: -0.58rem;}
+            &:after{right: -0.58rem;}
+        }
+    }
+    .ymw-loginpop-btns{
+        padding-left: 1.03rem;
+        @extend %clearfix;
+        a{
+            display: block;
+            float: left;
+            margin-right: 0.63rem;
+            width: 0.9rem;
+            height: 0.9rem;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            &.ymw-loginpop-gs{@extend %ymw-loginpop-gs}
+            &.ymw-loginpop-wb{@extend %ymw-loginpop-wb;margin-right: 0;}
+            &.ymw-loginpop-qq{@extend %ymw-loginpop-qq}
+        }
+    }
+}
+time.icon {padding-left:25px; background:url(http://image.gamersky.com/webimg13/wap/2016/icons-time.png) no-repeat; -webkit-background-size:auto 100%;  background-size:auto 100%;}

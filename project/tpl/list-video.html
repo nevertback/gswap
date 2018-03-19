@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>视频列表页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    @@include('myinc/new_wap_header.html')
+</head>
+<body>
+@@include('myinc/wap_wrap_top.html')
+@@include('myinc/new_wap_nav.html')
+<ul class="ymw-list-video">
+    @@for (var i = 0; i < 5; i++) {
+    <li>
+        <h5>《真三国无双8》新演示关银屏登场 怪力美少女手握狼牙棒</h5>
+        <div class="ylv-img">
+            <img src="http://img1.gamersky.com/image2018/03/20180318_gtz_412_1/gamersky_04small_08_2018318933590.jpg" alt="《真三国无双8》新演示关银屏登场 怪力美少女手握狼牙棒">
+            <i class="ylv-img-mask"></i>
+            <i class="ylv-img-icon"></i>
+        </div>
+        <div class="clearfix ylv-bottom">
+            <time>`+(30 - i*2)+`分钟前</time>
+            <div class="ylv-comment">148</div>
+            <div class="ylv-tags">
+                <a>预告片</a>
+            </div>
+        </div>
+        <a target="_blank" href="#" class="ylv-link"></a>
+    </li>
+    <li>
+        <h5>有人在《天际线》建造马来西亚布城 像拍了部纪录片</h5>
+        <div class="ylv-img">
+            <img src="http://img1.gamersky.com/image2018/03/20180318_gtz_412_3/gamersky_02small_04_2018318104113.jpg" alt="有人在《天际线》建造马来西亚布城 像拍了部纪录片">
+            <i class="ylv-img-mask"></i>
+            <i class="ylv-img-icon"></i>
+        </div>
+        <div class="clearfix ylv-bottom">
+            <time>`+(29 - i*2)+`分钟前</time>
+            <div class="ylv-comment">200</div>
+            <div class="ylv-tags">
+                <a>预告片</a>
+            </div>
+        </div>
+        <a target="_blank" href="#" class="ylv-link"></a>
+    </li>
+    }
+    <a class="ymw-more ymw-more-b ymw-more-bg" data-txt="点击加载更多视频"><i></i><span>点击加载更多视频</span></a>
+</ul>
+@@include('myinc/new_wap_footer_t.html')
+<a href="http://www.gamersky.com/news/?tag=wap" class="ymw-btns ymw-btns-pc">
+    @@include('myinc/new_wap_footer_b.html')
+    @@include('myinc/wap_wrap_bot.html')
+</body>
+</html><!-- ParserInfo: Processed in 6.9288633 second(s) Ticks:12856492 -->

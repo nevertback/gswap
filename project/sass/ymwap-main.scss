@@ -1,0 +1,35 @@
+/***
+by Mrrr.Tian
+c:2016.05.04
+u:2018.01.02
+***/
+html{font-size: 45px;}
+html,body{
+	width: 100%;
+	overflow-x: hidden;
+    font-size: 12px;
+}
+.mainArea{
+    margin: 0 auto;
+    width:7.2rem;
+}
+button {
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    outline: 0;
+}
+section,header,nav,footer,ul,ol,dl,div,h1,h2,h3,h4,h5,h6{
+  font-size: 16px;
+}
+@import "reset/normalize/import-now";
+@import "imgs";
+@import "funcss";
+@import "headerandfooter";
+@import "index";
+@import "list";
+@import "allcon";
+@import "login";
+
+@import "ads";
+@import "rem_rew";

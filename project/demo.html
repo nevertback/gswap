@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title></title>
+    <style>
+
+
+        p{
+            width:100%;
+            line-height:100px;
+            text-align:center;
+        }
+    </style>
+    <script type="text/javascript">
+        var browser = {
+            isAndroid: function () {
+                return navigator.userAgent.match(/Android/i) ? true : false;
+            },
+            isWx: function () {
+                return navigator.userAgent.match(/micromessenger/i) ? true : false;
+            },
+            isBaiduBrowser: function () {
+                return navigator.userAgent.match(/baidubrowser/i) ? true : false;
+            },
+            isUCBrowser: function () {
+                return navigator.userAgent.match(/UCBrowser/i) ? true : false;
+            },
+            isQQBrowser: function () {
+                return navigator.userAgent.match(/QQBrowser/i) ? true : false;
+            }
+        };
+        var vv = {
+            generateSchema: function (config) {
+                var schemaStr = '';
+                // uc,qq
+                if (browser.isUCBrowser() || browser.isQQBrowser()) {
+                    schemaStr = config.protocal + "://" + config.schema;
+                } else {
+                    schemaStr = "intent://" + config.schema + "#Intent;" +
+                        "scheme=" + config.protocal + ";" +
+                        "package=" + config.apkInfo.PKG + ";" +
+                        "category=" + config.apkInfo.CATEGORY + ";" +
+                        "action=" + config.apkInfo.ACTION + ";" +
+                        "S.browser_fallback_url=" + encodeURIComponent(config.failUrl) + ";" +
+                        "end";
+                }
+                return schemaStr;
+            },
+            loadSchema: function (config) {
+                var schemaUrl = this.generateSchema(config),
+                    aLink = document.createElement("a"),
+                    body = document.body,
+                    loadTimer = null;
+                aLink.style.cssText = "display:none;width:0px;height:0px;";
+                aLink.setAttribute("target", "_blank");
+                if (browser.isWx()) {
+                    window.location.href = config.failUrl;
+                } else {
+                    aLink.href = schemaUrl;
+                    body.appendChild(aLink);
+                    aLink.click();
+                }
+                // 如果LOAD_WAITING时间后,还是无法唤醒app，则直接打开下载页
+                // opera 无效
+                var start = Date.now(),
+                    that = this;
+                loadTimer = setTimeout(function () {
+                    if (document.hidden || document.webkitHidden) {
+                        return;
+                    }
+                    // 如果app启动，浏览器最小化进入后台，则计时器存在推迟或者变慢的问题
+                    // 那么代码执行到此处时，时间间隔必然大于设置的定时时间
+                    if (Date.now() - start > config.loadWaiting + 200) {}
+                    else {
+                        window.location.href = config.failUrl;
+                    }
+
+                }, config.loadWaiting);
+
+                var visibilitychange = function () {
+                    var tag = document.hidden || document.webkitHidden;
+                    tag && clearTimeout(loadTimer);
+                };
+                document.addEventListener('visibilitychange', visibilitychange, false);
+                document.addEventListener('webkitvisibilitychange', visibilitychange, false);
+                // pagehide 必须绑定到window
+                window.addEventListener('pagehide', function () {
+                    clearTimeout(loadTimer);
+                }, false);
+            }
+        }
+    </script>
+</head>
+<body>
+<p>
+    <a id="openApp" target="_blank">打开游民星空APP-test</a>
+</p>
+<p>
+    <a id="openApp2">打开文章APP-test</a>
+</p>
+<!--<iframe src="gamersky://news?id=934547" style="display:none;"></iframe>-->
+<script type="text/javascript">
+    document.getElementById("openApp").addEventListener("click", function () {
+        vv.loadSchema({
+            schema: "home",
+            protocal: "gamersky",
+            loadWaiting: "3000",
+            failUrl: "http://a.gamersky.com/",
+            apkInfo: {
+                PKG: "com.gamersky",
+                CATEGORY: "android.intent.category.DEFAULT",
+                ACTION: "android.intent.action.VIEW"
+            }
+        });
+    });
+    document.getElementById("openApp2").addEventListener("click", function () {
+        vv.loadSchema({
+            schema: "news?id=934547",
+            protocal: "gamersky",
+            loadWaiting: "3000",
+            failUrl: "http://a.gamersky.com/",
+            apkInfo: {
+                PKG: "com.gamersky",
+                CATEGORY: "android.intent.category.DEFAULT",
+                ACTION: "android.intent.action.VIEW"
+            }
+        });
+    });
+</script>
+</body>
+</html>
