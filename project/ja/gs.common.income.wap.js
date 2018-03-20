@@ -75,11 +75,12 @@
             return !/Android|webOS|iPhone|iPod|BlackBerry/i.test(bnu);
         }
     };
+    function gsIncomeWap() {}
     gsIncomeWap.prototype.gsCountSiteInner = function(gsid) {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://click.gamersky.com/Common/GetWapHits.aspx",
+            url: "http://click.gamersky.com/Common/GetHits.aspx",
             data: {
                 id: gsid,
                 script: "3"
@@ -87,7 +88,6 @@
             success: function (data) {}
         });
     };
-    function gsIncomeWap() {}
     gsIncomeWap.prototype.base=function (options) {
         var tgDom = '',
             tgImg = options.src,
@@ -601,6 +601,147 @@
                 //window.location.reload();
             }
             window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+        };
+    };
+    gsIncomeWap.prototype.anim1=function (options) {
+        var tgDom = '',
+            tgImg1 = options.src1,
+            tgImg2 = options.src2,
+            tgUrl = options.android.url,
+            tgCount = options.android.countId,
+            jcCodeDom = '',tgTag = '',tgStyle;
+        if(isiOS){
+            tgUrl = options.ios.url;
+            tgCount = options.ios.countId;
+        }
+        if(options.jcCode){
+            jcCodeDom += gsCountAnalysis(options.jcCode);
+        }
+        if(options.tg){
+            tgTag += '<div class="gsTgWapIndexAnim1Tg"></div>';
+        }
+        tgStyle = '<style>' +
+            '#gsTgWapIndexAnimMain{position: relative;}' +
+            '#gsTgWapIndexAnimArea{position: relative;}' +
+            '#gsTgWapIndexAnimArea canvas{display: block;}' +
+            '#gsTgWapIndexAnimAreaCanvas{position: absolute;left: 0;top: 0;}' +
+            '</style>';
+        tgDom += tgStyle;
+        tgDom += '<div id="gsTgWapIndexAnimMain">';
+        tgDom += '<div id="gsTgWapIndexAnimArea"><canvas id="gsTgWapIndexAnimAreaCanvasBg"></canvas><canvas id="gsTgWapIndexAnimAreaCanvas"></canvas></div>';
+        tgDom += '<a target="_blank" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="gsTgWapLkInnerLink countHit countHitSql">'+'</a>'+tgTag+jcCodeDom+'</div>';
+
+        function addCount(cid) {
+            $.ajax({
+                type: "GET",
+                dataType: "jsonp",
+                url: "http://click.gamersky.com/Common/GetHits.aspx",
+                data: {
+                    id: cid,
+                    script: "3"
+                },
+                success: function (data) {}
+            });
+        }
+        var animFunc = {
+            methods:function () {
+                var canAf = false,openAnim = false,
+                    $area = $('#gsTgWapIndexAnimArea'),
+                    cvsBg = document.getElementById('gsTgWapIndexAnimAreaCanvasBg'),
+                    ctxBg = cvsBg.getContext('2d'),
+                    cvs = document.getElementById('gsTgWapIndexAnimAreaCanvas'),
+                    ctx = cvs.getContext('2d'),
+                    $ww = $(window).width()>720?720:$(window).width(),
+                    $ah = $ww/16*9,circlePos = {x:0.3,y:0.2},
+                    offsetDst = {
+                        in:50,
+                        out:50
+                    };
+                var canvasOffscreen = document.createElement('canvas');
+                canvasOffscreen.width = $ww;
+                canvasOffscreen.height = $ah;
+                var cfctx = canvasOffscreen.getContext('2d');
+                cfctx.clearRect(0,0,$ww,$ah);
+                cfctx.drawImage(ldImage2,0, 0,$ww,$ah);
+                var anim = {
+                    setSize:function () {
+                        cvsBg.width = $ww;
+                        cvsBg.height = $ah;
+                        cvs.width = $ww;
+                        cvs.height = $ah;
+                    },
+                    drawBg:function () {
+                        ctxBg.drawImage(ldImage1,0, 0,$ww,$ah);
+                    },
+                    drawAnim:function (st,sa) {
+                        var percent = st/sa,
+                        calcR = Math.sqrt(Math.pow($ww - $ww*circlePos.x,2)+Math.pow($ah - $ah*circlePos.y,2))*(1-percent);
+                        calcR = calcR<0?0:calcR;
+                        cvs.height = $ah;
+                        ctx.clearRect(0,0,$ww,$ah);
+                        ctx.arc($ww*circlePos.x,$ah*circlePos.y,calcR,0,2*Math.PI);
+                        ctx.clip();
+                        ctx.drawImage(canvasOffscreen, 0, 0,$ww, $ah);
+                    },
+                    getScroll:function () {
+                        var that = this,$wh = $(window).height(),calcH = $wh - $ah;
+                        function cvsIn(vs) {
+                            if(vs <= calcH + offsetDst.in && vs >= -offsetDst.out){
+                                return 'in';
+                            }
+                        }
+                        function cvsOut(vs) {
+                            if(vs < -offsetDst.in || vs > calcH + offsetDst.out){
+                                return 'out';
+                            }
+                        }
+                        function getScroll() {
+                            var cbt = cvsBg.getBoundingClientRect().top;
+                            if(cvsIn(cbt) === 'in'){
+                                openAnim = true;
+                                that.drawAnim(cbt,calcH);
+                            }else{
+                                openAnim = false;
+                            }
+                        }
+                        function render() {
+                            if(canAf === true){
+                                getScroll();
+                            }
+                            window.requestAnimationFrame(render);
+                        }
+                        render();
+                    },
+                    render:function () {
+                        canAf = true;
+                        this.setSize();
+                        this.drawBg();
+                        this.getScroll();
+                    }
+                };
+                anim.render();
+            },
+            init:function () {
+                this.methods();
+            }
+        };
+        var ldImage1 = new Image(),ldImage2 = new Image(),reloadFunc;
+        ldImage1.src = tgImg1;
+        ldImage2.src = tgImg2;
+        ldImage1.onload = function () {
+            ldImage2.onload = function () {
+                $(options.tar).html(tgDom);
+                animFunc.init();
+                function hengshuping(){
+                    clearTimeout(reloadFunc);
+                    reloadFunc = setTimeout(function () {
+                        $(options.tar).html(tgDom);
+                        animFunc.init();
+                    },200);
+                    //window.location.reload();
+                }
+                window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+            };
         };
     };
     window.gsTgWap = new gsIncomeWap();

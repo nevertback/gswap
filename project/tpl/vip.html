@@ -1,170 +1,949 @@
 
-<!doctype html>
-<html lang="zh">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>唯品会</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
+    <title>单机游戏门户_单机游戏资讯、下载及攻略 游民星空手机版</title>
+    <meta name="keywords" content="手机游民星空,单机游戏,游民星空触屏版,游民星空首页,新闻资讯,攻略秘籍">
+    <meta name="description" content="手机游民星空是游民星空的手机门户网站，为亿万用户打造一个手机联通世界的超级平台，提供最专业的游戏新闻资讯，海量游戏攻略秘籍，内容覆盖单机游戏、主机游戏、掌机游戏、网络游戏、手机游戏等实用信息。">
+    <link rel="stylesheet" href="http://j.gamersky.com/g/swiper.min.css">
+    <link rel="stylesheet" href="http://j.gamersky.com/wap/css/new/ymwap-main.css?2018031401">
+    <link rel="stylesheet" href="http://j.gamersky.com/wap/css/new/oldstyle.css">
+    <script type="text/javascript" src="http://j.gamersky.com/g/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://j.gamersky.com/g/touch-0.2.14.min.js"></script>
+    <script>
+        !function(a){function c(){var b=a(window).width();if(b>720){b=720};a("html").css({"font-size":b/7.2+"px"}).addClass('gsRem720')}var d=navigator.userAgent;1==(navigator.appVersion,-1<d.indexOf("Android")||-1<d.indexOf("Linux"))?(a("html").removeClass("ymw-iOsWap"),a("html").addClass("ymw-androidWap")):(a("html").removeClass("ymw-androidWap"),a("html").addClass("ymw-iOsWap"));c();a(window).resize(c)}(jQuery);
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?7b87e8814f59adf402c97e19b3b2a9e2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        var notag;
+    </script>
 </head>
-
 <body>
-<script type="text/javascript">
-    !function() {
-        if (typeof String.prototype.endsWith != 'function') {
-            String.prototype.endsWith = function(suffix) {
-                return this.indexOf(suffix, this.length - suffix.length) !== -1;
-            };
-        }
-
-        //获取参数
-        var getQueryString = function(name) {
-            var re = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', "i");
-            var m = location.search.slice(1).match(re);
-            var v = m ? m[2] : '';
-            return (v == '' || isNaN(v)) ? decodeURIComponent(v) : v - 0;
-        }
-
-        var ua = navigator.userAgent;
-        var beginTime = (new Date()).getTime();
-        var urlRex = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-
-        //基础数据
-        var base = {
-            sStr : location.search.slice(1),
-            isSafari : ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 1,
-            iPhoneVersion : ua.match(/OS ([5-9])_\d[_\d]* like Mac OS X/i),
-            isUC : /UCBrowser/.test(ua),
-            isChrome : /Chrome/.test(ua),
-            isWeiXin: /MicroMessenger/.test(ua),
-            isIPad: ua.indexOf("iPad"),
-            isIPod: ua.indexOf("iPod"),
-            isIPhone : ua.indexOf('iPhone'),
-            isAndroid : ua.indexOf('Android') > -1 || ua.indexOf('Linux') > -1, //android终端,
-            isIOS: !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),                 //ios终端,
-            requestUrl: "http://api.union.vip.com/dl/deeplinkH5Info",           //发送后台接口
-            webHome:"http://m.vip.com",
-            webUrl: getQueryString("dest_url"),
-            traFrom: getQueryString("tra_from"),
-            linkUrl: getQueryString("link_url"),
-            appUrl: "vipshop://goHome?f="+ encodeURIComponent("fx") +"&tra_from=" + encodeURIComponent(getQueryString("tra_from"))
-        }
+<div class="mainArea pagePositionIndex">
+    <div id="gsTgWapTop"></div>
+    <header class="ymw-header2018 ymw-header2018-index">
+        <aside>
+            <a target="_blank" href="http://wap.gamersky.com/" class="ymw-logo"></a>
+            <a class="ymw-app-open gsOpenAppHome" data-isindex="yes" href="http://a.gamersky.com/app/">手机客户端</a>
+        </aside>
+        <div class="ywm-header-navs">
+            <div class="ywm-header-swp swiper-container" id="ymwHeaderSwp">
+                <div class="swiper-wrapper">
+                    <a target="_blank" href="http://wap.gamersky.com/" class="ymwHeaderSwpItem">首页</a>
+                    <a target="_blank" href="http://wap.gamersky.com/news/" class="ymwHeaderSwpItem">资讯</a>
+                    <a target="_blank" href="http://wap.gamersky.com/ku/" class="ymwHeaderSwpItem">游戏</a>
+                    <a target="_blank" href="http://wap.gamersky.com/gl/" class="ymwHeaderSwpItem">攻略</a>
+                    <a target="_blank" href="http://i.gamersky.com/m/club/2" class="ymwHeaderSwpItem">圈子</a>
+                    <a target="_blank" href="http://wap.gamersky.com/shouyou/" class="ymwHeaderSwpItem ymwSyLink">手游</a>
+                    <a target="_blank" href="http://wap.gamersky.com/donghua/" class="ymwHeaderSwpItem">动画</a>
+                </div>
+            </div>
+            <a class="ywm-header-search" id="ywmHeaderSearchBtn"></a>
+            <div class="ywm-header-search-pop" id="ywmHeaderSearchPop">
+                <form class="ymw-search-form" id="ymwSearchIn">
+                    <input class="ymw-search-ipt" type="search" placeholder="输入搜索内容">
+                    <input type="button" class="ymw-search-btn ymwSearchBtn">
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="swiper-container ymwSlider">
+        <div class="swiper-wrapper">
 
 
-        //唤起
-        var deepLink = {
-            init: function() {
-                var _this = this;
-                _this.openUrl();
-            },
-            openUrl: function() {
-                var _this = this;
-                //发送数据
-                _this.requestSevice();
-                //没有参数直接去到首页
-                if(!base.sStr || !base.webUrl || (!base.traFrom&&!base.linkUrl)){
-                    _this.locationHref(base.webHome);
-                    return;
-                }
 
-                var baseWebUrlStr = decodeURIComponent(base.webUrl);
-                var linkUrlStr = base.linkUrl;
-                var hostUrlarray = baseWebUrlStr.match(/^http[s]{0,1}:\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/);
-                var hostUrlStr;
-                if(hostUrlarray){
-                    hostUrlStr = hostUrlarray[0];
-                }
-                //首先判断是否细页面唤醒（link_url）
-                if(linkUrlStr!=''&&linkUrlStr.indexOf("vipshop://") == 0){
-                    //是否移动设备
-                    if(base.isIOS || base.isAndroid){
-                        //iframe唤起APP　
-                        _this.iframeOpenUrl(linkUrlStr);
-                    }else{
-                        //判断是否内部域
-                        if(hostUrlStr && (hostUrlStr.endsWith(".vip.com") || hostUrlStr.endsWith(".vipshop.com") || hostUrlStr.endsWith(".appvipshop.com"))){
-                            //跳转到相应的落地页
-                            _this.locationHref(base.webUrl);
-                        }else{
-                            //跳转到首页
-                            _this.locationHref(base.webHome);
-                        }
-                    }
-                }else if(hostUrlStr && (hostUrlStr.endsWith(".vip.com") || hostUrlStr.endsWith(".vipshop.com") || hostUrlStr.endsWith(".appvipshop.com"))){
-                    //唤醒到主页
-                    //是否移动设备
-                    if(base.isIOS || base.isAndroid){
-                        //iframe唤起APP　
-                        _this.iframeOpenUrl(base.appUrl);
-                    }else{
-                        //跳转到相应的落地页　
-                        _this.locationHref(base.webUrl);
-                    }
-                }else{
-                    _this.locationHref(base.webHome);
-                }
-            },
-            getDevice:function(){
-                var device = "other";
-                if(base.isIOS){
-                    device = "IOS";
-                }else if(base.isAndroid){
-                    device = "Android";
-                }
-                return device;
-            },
-            requestSevice:function(){
-                var _this = this;
-                var img = new Image();
-                var device = _this.getDevice();
-                var endTime = (new Date()).getTime();
-                var requestUrl = base.requestUrl + "?beginTime=" + beginTime + "&endTime=" + endTime + "&device=" + device;
-                img.src = requestUrl;
-            },
-            iframeOpenUrl: function(url) {
-                var _this = this;
-                var ifm = document.createElement('iframe');
-                ifm.frameborder = '0';
-                ifm.style.cssText = 'display:none;border:0;width:0;height:0;';
-                document.body.appendChild(ifm);
-                ifm.src = url;
 
-                //直接跳，解决android 回退问题
-                _this.locationHref(base.webUrl);
-            },
-            localOpenUrl: function() {
-                var _this = this;
-                //app
-                location.href = base.appUrl;
-                //m站
-                setTimeout(function() {
-                    _this.locationHref(base.webUrl);
-                }, 2000);
-            },
-            locationHref:function(href){
-                var _this = this;
-                var tmpHostUrlarray = href.match(/http[s]{0,1}:\/\/[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/);
-                var tmpHostUrlStr;
-                if(tmpHostUrlarray){
-                    tmpHostUrlStr = tmpHostUrlarray[0];
-                }
+            <div class="swiper-slide"><a href="http://wap.gamersky.com/news/Content-1025801.html" class="countHit" data-itemid="1026326"><img src="http://imgs.gamersky.com/pic/2018/20180317_zcq_252_14.jpg" alt=""><h5>《战神》制作人：奎爷不该玩“小游戏”了</h5></a></div>
 
-                //判断是否为合法URL，不合法跳转到M站首页
-                if (href.match(urlRex) && tmpHostUrlStr && (tmpHostUrlStr.endsWith(".vip.com") || tmpHostUrlStr.endsWith(".vipshop.com") || tmpHostUrlStr.endsWith(".appvipshop.com"))){
-                    location.href =  href;
-                }else{
-                    location.href =  base.webHome;
-                }
-            }
-        }
+            <div class="swiper-slide"><a href="http://wap.gamersky.com/news/Content-1025611.html" class="countHit" data-itemid="1026314"><img src="http://image.gamersky.com/gameshd/2018/20180319_cks_170_2.jpg" alt=""><h5>我们提前玩了战神：风格剧变 但比之前作都精彩</h5></a></div>
 
-        deepLink.init();
-    }();
+            <div class="swiper-slide"><a href="http://wap.gamersky.com/news/Content-1026188.html" class="countHit" data-itemid="1026233"><img src="http://imgs.gamersky.com/pic/2018/20180319xtn_162_4.jpg" alt=""><h5>对霍金的临终警告 玩家的感悟也许最深刻</h5></a></div>
 
-</script>
+            <div class="swiper-slide"><a href="http://wap.gamersky.com/news/Content-1025950.html" class="countHit" data-itemid="1026081"><img src="http://image.gamersky.com/gameshd/2018/20180319_gd_340_11.jpg" alt=""><h5>用12万元的PC玩游戏是什么体验？</h5></a></div>
+
+            <div class="swiper-slide"><a href="http://wap.gamersky.com/news/Content-1025936.html" class="countHit" data-itemid="1026080"><img src="http://image.gamersky.com/gameshd/2018/20180319_gd_340_12.jpg" alt=""><h5>《战神》新CG预告震撼公布</h5></a></div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="ymw-todaytop"><a href="http://wap.gamersky.com/news/Content-1025806.html">《无双大蛇3》中文预告公布！2018年发售</a> <a href="http://wap.gamersky.com/news/Content-1025934.html">《刺客信条》新作或为古希腊背景 2019年发售</a></div>
+    <ul class="ymw-list-tp1 mb8 ymwListMore" data-listshow="10">
+
+
+
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/pic/2018/20180320_ll_136_6.jpg" alt="古天乐科幻片《明日战记》预告 真人版COD+泰坦陨落">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>古天乐科幻片《明日战记》预告 真人版COD+泰坦陨落</h5>
+            <p><time>
+                今日 16:10</time><span class="pls cy_comment" data-sid="1026629"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026629.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201551567448.jpg" alt="华为nova 3e正式发布：5.8英寸异形全面屏 1999元起">
+
+            <h5 class=""><strong>安卓</strong><span>|</span>华为nova 3e正式发布：5.8英寸异形全面屏 1999元起</h5>
+            <p><time>
+                今日 15:57</time><span class="pls cy_comment" data-sid="1026637"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026637.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201529137612.jpg" alt="《寒蝉鸣泣之时》将登陆NS平台 7月26日正式发售">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>《寒蝉鸣泣之时》将登陆NS平台 7月26日正式发售</h5>
+            <p><time>
+                今日 15:45</time><span class="pls cy_comment" data-sid="1026618"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026618.html"></a>
+        </li>
+        <div id="gsTgWapIndexlist4"></div>
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201437367389.jpg" alt="《JUMP》优衣库联动T恤国内4月23开卖 把角色穿上身">
+
+            <h5 class="yu-danger"><strong>周边</strong><span>|</span>《JUMP》优衣库联动T恤国内4月23开卖 把角色穿上身</h5>
+            <p><time>
+                今日 15:36</time><span class="pls cy_comment" data-sid="1026572"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026572.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201521487559.jpg" alt="Key社AVG名作《Clannad》将登陆PS4 6月14日发售">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>Key社AVG名作《Clannad》将登陆PS4 6月14日发售</h5>
+            <p><time>
+                今日 15:26</time><span class="pls cy_comment" data-sid="1026614"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026614.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201504491676.jpg" alt="Fami通最新游戏评分出炉：《秋之回忆8》32分">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>Fami通最新游戏评分出炉：《秋之回忆8》32分</h5>
+            <p><time>
+                今日 15:13</time><span class="pls cy_comment" data-sid="1026594"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026594.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201433052771.jpg" alt="育碧中文商城春季促销今晚开启 《AC起源》6折史低">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>育碧中文商城春季促销今晚开启 《AC起源》6折史低</h5>
+            <p><time>
+                今日 15:02</time><span class="pls cy_comment" data-sid="1026559"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026559.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201437002046.jpg" alt="甄子丹新动作片《大师兄》预告 变身中学老师也能打">
+
+            <h5 class="yu-danger"><strong>新闻</strong><span>|</span>甄子丹新动作片《大师兄》预告 变身中学老师也能打</h5>
+            <p><time>
+                今日 14:50</time><span class="pls cy_comment" data-sid="1026551"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026551.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201023475399.jpg" alt="很少露面的她将击败灭霸？《复联3》预告8大彩蛋">
+
+            <h5 class=""><strong>娱乐</strong><span>|</span>很少露面的她将击败灭霸？《复联3》预告8大彩蛋</h5>
+            <p><time>
+                今日 14:39</time><span class="pls cy_comment" data-sid="1026382"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026382.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/pic/2018/20180320_ll_136_2.jpg" alt="腮红金iPhone X曝谍照：颜值大赞 新配色已投产？">
+
+            <h5 class=""><strong>苹果</strong><span>|</span>腮红金iPhone X曝谍照：颜值大赞 新配色已投产？</h5>
+            <p><time>
+                今日 14:31</time><span class="pls cy_comment" data-sid="1026369"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026369.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201147243965.jpg" alt="《堡垒之夜》主播月入50万美元 手游登顶47国IOS榜">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>《堡垒之夜》主播月入50万美元 手游登顶47国IOS榜</h5>
+            <p><time>
+                今日 14:05</time><span class="pls cy_comment" data-sid="1026492"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026492.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201224428566.jpg" alt="任天堂Switch春季宣传片 撩妹轰趴必备神器">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>任天堂Switch春季宣传片 撩妹轰趴必备神器</h5>
+            <p><time>
+                今日 13:43</time><span class="pls cy_comment" data-sid="1026521"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026521.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/pic/2018/20180320_ll_136_3.jpg" alt="雷军晒小米MIX 2S真机照：屏占比惊人 吴亦凡代言">
+
+            <h5 class="yu-danger"><strong>安卓</strong><span>|</span>雷军晒小米MIX 2S真机照：屏占比惊人 吴亦凡代言</h5>
+            <p><time>
+                今日 13:25</time><span class="pls cy_comment" data-sid="1026422"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026422.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803200947034128.jpg" alt="2018年4月新番一览表最终版 71部动画再创新高">
+
+            <h5 class=""><strong>动画</strong><span>|</span>2018年4月新番一览表最终版 71部动画再创新高</h5>
+            <p><time>
+                今日 13:12</time><span class="pls cy_comment" data-sid="1026321"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026321.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201220502395.jpg" alt="B社正在制作两款新作：300人参与 一款已在全面开发">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>B社正在制作两款新作：300人参与 一款已在全面开发</h5>
+            <p><time>
+                今日 13:00</time><span class="pls cy_comment" data-sid="1026506"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026506.html"></a>
+        </li>
+
+        <li>
+
+            <img src="http://imgs.gamersky.com/pic/2018/20180320_ll_136_5.jpg" alt="史上最贵！《指环王》电视剧耗资5亿美元 超越权游">
+
+            <h5 class=""><strong>新闻</strong><span>|</span>史上最贵！《指环王》电视剧耗资5亿美元 超越权游</h5>
+            <p><time>
+                今日 12:48</time><span class="pls cy_comment" data-sid="1026523"></span></p>
+            <a href="http://wap.gamersky.com/news/Content-1026523.html"></a>
+        </li>
+
+        <a href="javascript:;" class="ymw-more ymwListMoreBtn" data-link="/news/" data-txt="查看更多资讯"><i></i><span>点击加载更多资讯</span></a>
+    </ul>
+    <div id="gsTgWapIndexAnim1"></div>
+    <div id="gsTgWapIndexremenTop"></div>
+
+    <div id="gsTgWapLk"></div>
+    <h4 class="ymw-title-lev2 mt8"><span>热门游戏</span><a href="http://wap.gamersky.com/ku/">+更多</a></h4>
+    <section class="ymw-hotgame mb8">
+        <div class="swiper-container ymwScroImg">
+            <div class="swiper-wrapper">
+
+
+
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/Final-Fantasy-15/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_ff15.jpg" alt="最终幻想15"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>最终幻想15</h5>
+                        <p>338707°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/H1Z1/">
+
+                        <img src="http://imgs.gamersky.com/ku/2018/ku_h1z1.jpg" alt="H1Z1"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>H1Z1</h5>
+                        <p>1539776°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/nioh/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_nioh.jpg" alt="仁王"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>仁王</h5>
+                        <p>169101°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/divinity-original-sin-2/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_divinityoriginalsin2.jpg" alt="神界：原罪2"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>神界：原罪2</h5>
+                        <p>102559°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/ark-survival-evolved/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_arksurvivalevolved.jpg" alt="方舟：生存进化"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>方舟：生存进化</h5>
+                        <p>2969159°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/One-Piece-Unlimited-World-Red/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_onepieceunlimitedworldred.jpg" alt="海贼王：无尽世界R"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>海贼王：无尽世界R</h5>
+                        <p>342379°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/uncharted-the-lost-legacy/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_unchartedthelostlegacy.jpg" alt="神秘海域：失落遗产"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>神秘海域：失落遗产</h5>
+                        <p>9794°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/Minecraft/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_mc.jpg" alt="我的世界"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>我的世界</h5>
+                        <p>982151°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/the-king-of-fighters-14/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_kof14.jpg" alt="拳皇14"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>拳皇14</h5>
+                        <p>153513°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/dirt-4/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_dirt4.jpg" alt="尘埃4"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>尘埃4</h5>
+                        <p>62178°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/Tekken-7/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_tekken7.jpg" alt="铁拳7"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>铁拳7</h5>
+                        <p>88466°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/prey-2017/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_prey.jpg" alt="掠食"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>掠食</h5>
+                        <p>98536°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/warhammer-40000-dawn-of-war-3/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_dawnofwar3.jpg" alt="战锤40K：战争黎明3"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>战锤40K：战争黎明3</h5>
+                        <p>45245°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/Bayonetta/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_bayonetta.jpg" alt="猎天使魔女"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>猎天使魔女</h5>
+                        <p>891295°</p>
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="http://wap.gamersky.com/ku/toukiden-2/">
+
+                        <img src="http://imgs.gamersky.com/ku/2017/ku_toukiden2.jpg" alt="讨鬼传2"  width="110" height="158"  class="pe_u_thumb" border="0" >
+
+                        <h5>讨鬼传2</h5>
+                        <p>118028°</p>
+                    </a>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="ymw-hotgame-txt" style="display:none">
+            <a href="#">饥荒</a><a href="#">天涯明月刀</a><a href="#">骑马与砍杀</a><a href="#">海贼无双3</a><a href="#">国土防线2</a><a href="#">海贼王燃烧热血</a><a href="#">龙珠超宇宙</a>
+        </div>
+    </section>
+    <div id="gsTgWapIndexremenBottom"></div>
+    <h4 class="ymw-title-lev2 mt8"><span>手游下载</span><a href="http://wap.gamersky.com/shouyou/" class="ymwSyLink">+更多</a></h4>
+    <section class="ymw-tab-two ymw-tab-two-sty1 ymwTab mb8" data-navnum="2" data-rRo="0">
+        <div class="swiper-container ymw-tab-two-nav ymwTabNav">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">最新游戏</div>
+                <div class="swiper-slide">下载排行</div>
+            </div>
+        </div>
+        <div class="swiper-container ymw-tab-two-con ymwTabCon">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <ul class="ymw-list-mgame ymw-androidOnly">
+
+
+
+
+                        <li data-id="918808">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/moli/"><img src="http://img1.gamersky.com/image2017/09/20170904_yyc_325_7/icon.jpg" alt="魔力宝贝手机版"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/moli/">魔力宝贝手机版</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;1.09 GB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/moli/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="668331">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/668331/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_6/icon.jpg" alt="锻冶屋英雄谭"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/668331/">锻冶屋英雄谭</a></h5>
+                                <p>模拟经营&nbsp;|&nbsp;28.35 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/668331/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="719839">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/719839/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_5/icon.jpg" alt="兰空VOEZ"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/719839/">兰空VOEZ</a></h5>
+                                <p>音乐&nbsp;|&nbsp;713.82 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/719839/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1026217">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1026217/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_4/icon.jpg" alt="迷雾大陆"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1026217/">迷雾大陆</a></h5>
+                                <p>策略经营&nbsp;|&nbsp;118.26 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1026217/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1026196">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1026196/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_3/icon.jpg" alt="魔窟-无尽的地下城：宿命轮回"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1026196/">魔窟-无尽的地下城：宿命轮回</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;71.16 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1026196/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="668596">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/668596/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_2/icon.jpg" alt="像素车：超改"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/668596/">像素车：超改</a></h5>
+                                <p>射击&nbsp;|&nbsp;100.76 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/668596/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1025074">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1025074/"><img src="http://img1.gamersky.com/image2018/03/20180315_yyc_325_4/icon.jpg" alt="永不言弃3：世界"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1025074/">永不言弃3：世界</a></h5>
+                                <p>动作&nbsp;|&nbsp;83.23 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1025074/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1024577">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1024577/"><img src="http://img1.gamersky.com/image2018/03/20180314_yyc_325_4/icon.jpg" alt="幻刃录"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1024577/">幻刃录</a></h5>
+                                <p>卡牌&nbsp;|&nbsp;232.64 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1024577/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1024562">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1024562/"><img src="http://img1.gamersky.com/image2018/03/20180314_yyc_325_3/icon.jpg" alt="海岛战争"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1024562/">海岛战争</a></h5>
+                                <p>卡牌&nbsp;|&nbsp;251.15 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1024562/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1024201">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1024201/"><img src="http://img1.gamersky.com/image2018/03/20180314_yyc_325_1/icon.jpg" alt="大侠挂个机"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1024201/">大侠挂个机</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;44.30 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1024201/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                    </ul>
+                    <ul class="ymw-list-mgame ymw-iosOnly">
+
+
+
+
+                        <li data-id="1026454">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/czjy/"><img src="http://img1.gamersky.com/image2018/03/20180320_yyc_325_3/icon.jpg" alt="苍之纪元"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/czjy/">苍之纪元</a></h5>
+                                <p>冒险&nbsp;|&nbsp;338.40 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/czjy/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="668331">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/668331/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_6/icon.jpg" alt="锻冶屋英雄谭"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/668331/">锻冶屋英雄谭</a></h5>
+                                <p>模拟经营&nbsp;|&nbsp;59.00 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/668331/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="719839">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/719839/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_5/icon.jpg" alt="兰空VOEZ"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/719839/">兰空VOEZ</a></h5>
+                                <p>音乐&nbsp;|&nbsp;1.10 GB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/719839/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1026196">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1026196/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_3/icon.jpg" alt="魔窟-无尽的地下城：宿命轮回"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1026196/">魔窟-无尽的地下城：宿命轮回</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;225.60 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1026196/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="668596">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/668596/"><img src="http://img1.gamersky.com/image2018/03/20180319_yyc_325_2/icon.jpg" alt="像素车：超改"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/668596/">像素车：超改</a></h5>
+                                <p>射击&nbsp;|&nbsp;392.30 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/668596/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1025074">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1025074/"><img src="http://img1.gamersky.com/image2018/03/20180315_yyc_325_4/icon.jpg" alt="永不言弃3：世界"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1025074/">永不言弃3：世界</a></h5>
+                                <p>动作&nbsp;|&nbsp;392.20 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1025074/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1025419">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1025419/"><img src="http://img1.gamersky.com/image2018/03/20180316_yyc_325_6/icon.jpg" alt="阿门罗"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1025419/">阿门罗</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;835.70 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1025419/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="986736">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/death/"><img src="http://img1.gamersky.com/image2017/12/20171205_yyc_325_2/icon.jpg" alt="死神来了"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/death/">死神来了</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;214.50 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/death/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1016382">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1016382/"><img src="http://img1.gamersky.com/image2018/02/20180222_yyc_325_2/icon.jpg" alt="黑暗料理王"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1016382/">黑暗料理王</a></h5>
+                                <p>策略经营&nbsp;|&nbsp;204.20 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1016382/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="1024201">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/1024201/"><img src="http://img1.gamersky.com/image2018/03/20180314_yyc_325_1/icon.jpg" alt="大侠挂个机"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/1024201/">大侠挂个机</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;133.30 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/1024201/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="swiper-slide">
+                    <ul class="ymw-list-mgame ymw-androidOnly">
+
+
+
+
+                        <li data-id="808940">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/dnqq/"><img src="http://img1.gamersky.com/image2017/03/20170302_yyc_325_15/icon.jpg" alt="龙之谷手游"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/dnqq/">龙之谷手游</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;920.57 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/dnqq/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="958266">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/paj/"><img src="http://img1.gamersky.com/image2018/01/20180103_yyc_325_11/icon.jpg" alt="决战！平安京"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/paj/">决战！平安京</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;666.29 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/paj/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="755873">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/zm/"><img src="http://img1.gamersky.com/image2018/01/20180118_yyc_325_7/icon.jpg" alt="镇魔曲手游"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/zm/">镇魔曲手游</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;957.81 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/zm/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="741758">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/zxsy/"><img src="http://img1.gamersky.com/image2018/01/20180130_yyc_325_13/icon.jpg" alt="诛仙手游"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/zxsy/">诛仙手游</a></h5>
+                                <p>MMORPG&nbsp;|&nbsp;801.58 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/zxsy/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="657464">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/stzb/"><img src="http://img1.gamersky.com/image2017/10/20171025_yyc_325_11/icon.jpg" alt="率土之滨"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/stzb/">率土之滨</a></h5>
+                                <p>策略&nbsp;|&nbsp;474.24 MB</p>
+                                <i class="ymw-star ymw-star9"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/stzb/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="932856">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/ymrdzz/"><img src="http://img1.gamersky.com/image2018/01/20180117_yyc_325_9/icon.jpg" alt="野蛮人大作战"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/ymrdzz/">野蛮人大作战</a></h5>
+                                <p>动作&nbsp;|&nbsp;55.90 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/ymrdzz/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="985562">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/cjzc/"><img src="http://img1.gamersky.com/image2017/12/20171201_xyl_57_02/icon.jpg" alt="绝地求生：刺激战场"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/cjzc/">绝地求生：刺激战场</a></h5>
+                                <p>射击&nbsp;|&nbsp;669.17 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/cjzc/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="902393">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/902393/"><img src="http://img1.gamersky.com/image2018/01/20180122_yyc_325_1/icon.jpg" alt="喵星大作战"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/902393/">喵星大作战</a></h5>
+                                <p>动作&nbsp;|&nbsp;41.68 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/902393/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="906431">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/gun/"><img src="http://img1.gamersky.com/image2017/11/20171103_yyc_325_10/icon.jpg" alt="小米枪战"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/gun/">小米枪战</a></h5>
+                                <p>射击&nbsp;|&nbsp;743.66 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/gun/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="713190">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/wselj/"><img src="http://img1.gamersky.com/image2017/11/20171123_yyc_325_8/icon.jpg" alt="为谁而炼金"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/wselj/">为谁而炼金</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;69.00 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/wselj/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                    </ul>
+                    <ul class="ymw-list-mgame ymw-iosOnly">
+
+
+
+
+                        <li data-id="995462">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/995462/"><img src="http://img1.gamersky.com/image2017/12/20171226_yyc_325_13/icon.jpg" alt="文明6"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/995462/">文明6</a></h5>
+                                <p>策略&nbsp;|&nbsp;3.14 GB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/995462/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="959569">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/dazhi/"><img src="http://img1.gamersky.com/image2018/01/20180112_yyc_325_5/icon.jpg" alt="信长之野望：大志"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/dazhi/">信长之野望：大志</a></h5>
+                                <p>策略经营&nbsp;|&nbsp;1.45 GB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/dazhi/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="990158">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/lxqw/"><img src="http://img1.gamersky.com/image2018/01/20180110_yyc_325_15/icon.jpg" alt="旅行青蛙"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/lxqw/">旅行青蛙</a></h5>
+                                <p>益智休闲&nbsp;|&nbsp;228.60 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/lxqw/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="943801">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/bdm/"><img src="http://img1.gamersky.com/image2018/02/20180228_yyc_325_7/icon.jpg" alt="黑色沙漠"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/bdm/">黑色沙漠</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;71.80 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/bdm/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="927560">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/927560/"><img src="http://img1.gamersky.com/image2018/02/20180223_yyc_325_2/icon.jpg" alt="街头霸王4：冠军版"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/927560/">街头霸王4：冠军版</a></h5>
+                                <p>格斗&nbsp;|&nbsp;2.10 GB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/927560/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="713190">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/wselj/"><img src="http://img1.gamersky.com/image2017/11/20171123_yyc_325_8/icon.jpg" alt="为谁而炼金"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/wselj/">为谁而炼金</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;201.00 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/wselj/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="946308">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/946308/"><img src="http://img1.gamersky.com/image2018/02/20180208_yyc_325_5/icon.jpg" alt="最终幻想15：口袋版"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/946308/">最终幻想15：口袋版</a></h5>
+                                <p>角色扮演&nbsp;|&nbsp;785.50 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/946308/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="726388">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/726388/"><img src="http://img1.gamersky.com/image2018/01/20180117_yyc_325_1/icon.jpg" alt="迷失轨迹"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/726388/">迷失轨迹</a></h5>
+                                <p>冒险&nbsp;|&nbsp;405.00 MB</p>
+                                <i class="ymw-star ymw-star8"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/726388/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="990005">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/shouyou/990005/"><img src="http://img1.gamersky.com/image2018/01/20180112_yyc_325_7/icon.jpg" alt="Cytus 2"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/shouyou/990005/">Cytus 2</a></h5>
+                                <p>音乐&nbsp;|&nbsp;980.80 MB</p>
+                                <i class="ymw-star ymw-star7"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/shouyou/990005/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                        <li data-id="657464">
+                            <a class="ymw-list-mgame-img" href="http://wap.gamersky.com/z/stzb/"><img src="http://img1.gamersky.com/image2017/10/20171025_yyc_325_11/icon.jpg" alt="率土之滨"  width="50" height="50"  class="pe_u_thumb" border="0" ></a>
+                            <div class="ymw-list-mgame-txt">
+                                <h5><a href="http://wap.gamersky.com/z/stzb/">率土之滨</a></h5>
+                                <p>策略&nbsp;|&nbsp;628.00 MB</p>
+                                <i class="ymw-star ymw-star9"></i>
+                            </div>
+                            <a href="http://wap.gamersky.com/z/stzb/" class="ymw-list-mgame-down">下载</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="gsTgWapIndexentTop"></div>
+    <h4 class="ymw-title-lev2 mt8"><span>休闲娱乐</span></h4>
+    <ul class="clearfix ymw-list-pic2017 ymwListMore" data-listshow="6">
+
+
+
+
+        <li>
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201023475399.jpg" alt="很少露面的她将击败灭霸？《复联3》预告8大彩蛋">
+            <h5>《复联3》预告8大彩蛋</h5><a href="http://wap.gamersky.com/news/Content-1026382.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/upimg/2018/201803201237051414.jpg" alt="学舞蹈的妹子都这么会玩？在边缘试探的动态图">
+            <h5>学舞蹈妹子都这么玩</h5><a href="http://wap.gamersky.com/news/Content-1026522.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180319_zy_164_1.jpg" alt="山寨都能拍出经典 这九部恶搞电影让你看得津津有味">
+            <h5>这九部恶搞电影让你看得津津有味</h5><a href="http://wap.gamersky.com/news/Content-1026155.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/upimg/2018/201803191753335499.jpg" alt="一不小心成就经典 电影经典的15大即兴表演">
+            <h5>电影经典的15大即兴表演</h5><a href="http://wap.gamersky.com/news/Content-1026187.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180319_zy_164_2.jpg" alt="神仙姐姐都上榜了 外媒评演技最差的十位国内演员">
+            <h5>外媒评演技最差的国内演员</h5><a href="http://wap.gamersky.com/news/Content-1026210.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180319_zy_164_3.jpg" alt="脖子以下都是腿 姿势清奇的内涵囧图">
+            <h5>脖子以下都是腿</h5><a href="http://wap.gamersky.com/news/Content-1026277.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/upimg/2018/201803191217196925.jpg" alt="一堆“大牌”来袭 美剧回归季你准备好了吗？">
+            <h5>美剧回归季你准备好了吗？</h5><a href="http://wap.gamersky.com/news/Content-1026050.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180319_zy_164_99.jpg" alt="女朋友化妆的时候 喜欢玩球的内涵动态图">
+            <h5>女朋友化妆的时候</h5><a href="http://wap.gamersky.com/news/Content-1026072.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180314_zy_164_3.jpg" alt="每部都是8分以上 20部适合与家人一起看的喜剧电影">
+            <h5>20部适合与家人一起看的喜剧片</h5><a href="http://wap.gamersky.com/news/Content-1024570.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180318_zy_164_1.jpg" alt="老司机带女朋友飙车 非常贫乳的内涵囧图">
+            <h5>老司机带女朋友飙车</h5><a href="http://wap.gamersky.com/news/Content-1025917.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/pic/2018/20180314_hc_44_01.jpg" alt="精品还是很多的 DC漫改美剧烂番茄排名">
+            <h5>DC漫改美剧烂番茄排名</h5><a href="http://wap.gamersky.com/news/Content-1024582.html"></a></li>
+
+        <li>
+            <img src="http://imgs.gamersky.com/upimg/2018/201803161226394629.jpg" alt="拍的再好也不能赔钱啊 2017年度十大票房扑街电影">
+            <h5>2017年度票房扑街电影</h5><a href="http://wap.gamersky.com/news/Content-1025332.html"></a></li>
+
+        <div class="clearfix"></div>
+        <a href="javascript:;" class="ymw-more ymw-more-b ymw-more-bg ymwListMoreBtn" data-link="/news/ent/" data-txt="欣赏更多福利"><i></i><span>点击欣赏更多福利</span></a>
+    </ul>
+    <footer class="ymw-footer">
+        <a href="/" class="ymw-logo-f" target="_blank"><img src="http://image.gamersky.com/webimg13/wap/2017/f-logo.png" alt="游民星空"></a>
+        <p>Gamersky.com All rights reserved.
+            <a href="http://www.gamersky.com/?tag=wap" class="ymw-btns ymw-btns-pc">
+                <img src="http://image.gamersky.com/webimg13/wap/2016/f-pc.png" alt="pc">
+                <span>电脑版</span>
+            </a>
+            <a class="ymw-btns ymw-btns-app gsOpenAppHome" href="http://a.gamersky.com/app/">
+                <img src="http://image.gamersky.com/webimg13/wap/2017/f-app.png" alt="app">
+                <span>客户端</span>
+            </a>
+    </footer>
+    <script src="http://j.gamersky.com/web2015/js/lyz.delayLoading.min.js"></script>
+    <script src="http://j.gamersky.com/g/swiper-3.3.1.jquery.min.js"></script>
+    <script src="http://j.gamersky.com/wap/js/new/gamersky.mobile.v4.min.js?20180130002"></script>
+    <script src="http://j.gamersky.com/shouyou/z/js/booklayer.js"></script>
+    <script src="http://j.gamersky.com/wap/js/new/ymw.others.2017.js?2018031201"></script>
+    <script src="http://wap.gamersky.com/autoinc/allsite/allsite_nav_login_js.htm"></script>
+    <div id="gsTgWapBottomFixed"></div>
+    <script src="ja/gs.common.income.wap.js"></script>
+    <script src="ja/wap/wap.index.anim1.v1.js"></script>
+    <script src="http://j.gamersky.com/common/tg/allsite.tg.monitor.wap.js"></script>
+    <div style="display:none">
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdcb5060fba0123ff56d253331f28db6a' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <!--临时清掉i站登录cookie-->
+        <script src="http://i.gamersky.com/js/removeCookie.js"></script>
+        <!--临时清掉i站登录cookie-->
+    </div>
+</div>
 </body>
-
 </html>
