@@ -75,8 +75,8 @@
             return !/Android|webOS|iPhone|iPod|BlackBerry/i.test(bnu);
         }
     };
-    function gsIncomeWap() {}
-    gsIncomeWap.prototype.gsCountSiteInner = function(gsid) {
+    function GsIncomeWap() {}
+    GsIncomeWap.prototype.gsCountSiteInner = function(gsid) {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
@@ -88,7 +88,7 @@
             success: function (data) {}
         });
     };
-    gsIncomeWap.prototype.base=function (options) {
+    GsIncomeWap.prototype.base=function (options) {
         var tgDom = '',
             tgImg = options.src,
             tgUrl = options.android.url,
@@ -109,7 +109,7 @@
             $(options.tar).html(tgDom);
         }
     };
-    gsIncomeWap.prototype.fixedBot=function (options) {
+    GsIncomeWap.prototype.fixedBot=function (options) {
         var tgDom = '',
             tgImg = options.src,
             tgUrl = options.android.url,
@@ -154,7 +154,7 @@
             $('body').append(tgDom);
         };
     };
-    gsIncomeWap.prototype.fixedTop=function (options) {
+    GsIncomeWap.prototype.fixedTop=function (options) {
         var tgDom = '',
             tgImg = options.src,
             tgUrl = options.android.url,
@@ -170,10 +170,10 @@
         tgTag += createTg2(options.tg);
         var sty1 = 'position: fixed;top: 0;left: 0;z-index: 99992;width: 100%;height: auto;box-shadow: 0 0 8px rgba(0,0,0,.5);',
             sty2 = 'position: absolute;top: 0;right: 0;width: 35px;height: 36px;background:url(http://image.gamersky.com/webimg13/wap/2016/icons-adsclose.png) 0 0 no-repeat;background-size: 35px 36px;';
-        tgDom += '<div id="gsIncomeWapfixedTopHolder" style="margin: 0 auto;width: 100%;height: auto;"><img style="display: block;width: 100%;opacity: 0;" src="' + tgImg + '"/></div><div style="'+sty1+'" id="gsIncomeWapfixedTop"><a style="display: block;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql"><img style="display: block;width: 100%;" src="' + tgImg + '"/>'+tgTag+'</a><a style="'+sty2+'" id="gsIncomeWapfixedTopClose"></a>'+jcCodeDom+'</div>';
+        tgDom += '<div id="GsIncomeWapfixedTopHolder" style="margin: 0 auto;width: 100%;height: auto;"><img style="display: block;width: 100%;opacity: 0;" src="' + tgImg + '"/></div><div style="'+sty1+'" id="GsIncomeWapfixedTop"><a style="display: block;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql"><img style="display: block;width: 100%;" src="' + tgImg + '"/>'+tgTag+'</a><a style="'+sty2+'" id="GsIncomeWapfixedTopClose"></a>'+jcCodeDom+'</div>';
 
         function sbUc() {
-            var $fad = $('#gsIncomeWapfixedTop'),fadW = $fad.width(),fadH = $fad.height(),ww = $(window).width(),$fadHolder = $('#gsIncomeWapfixedTopHolder');
+            var $fad = $('#GsIncomeWapfixedTop'),fadW = $fad.width(),fadH = $fad.height(),ww = $(window).width(),$fadHolder = $('#GsIncomeWapfixedTopHolder');
             if (fadW/fadH <= 4/3) {
                 $fad.hide();
             }
@@ -201,9 +201,9 @@
                 timeoutad();
                 $(window).resize(sbUc).scroll(sbUc).trigger("scroll");
                 $(options.tar).html(tgDom);
-                $('#gsIncomeWapfixedTopClose').on('click',function () {
-                    $('#gsIncomeWapfixedTopHolder').remove();
-                    $('#gsIncomeWapfixedTop').remove();
+                $('#GsIncomeWapfixedTopClose').on('click',function () {
+                    $('#GsIncomeWapfixedTopHolder').remove();
+                    $('#GsIncomeWapfixedTop').remove();
                 });
             };
         }
@@ -211,7 +211,7 @@
             addAds();
         }
     };
-    gsIncomeWap.prototype.listFour=function (options) {
+    GsIncomeWap.prototype.listFour=function (options) {
         var tgDom = '',
             tgTag= options.tag,
             tgTit = options.tit,
@@ -238,7 +238,7 @@
             $(options.tar).html(tgDom);
         }
     };
-    gsIncomeWap.prototype.picTit1=function (options) {
+    GsIncomeWap.prototype.picTit1=function (options) {
         var tgDom = '',
             tgTit = options.tit,
             tgImg = options.src,
@@ -259,7 +259,7 @@
             $(options.tar).html(tgDom);
         }
     };
-    gsIncomeWap.prototype.picTit2=function (options) {
+    GsIncomeWap.prototype.picTit2=function (options) {
         var tgDom = '',
             tgTit = options.tit,
             tgImg = options.src,
@@ -280,7 +280,7 @@
             $(options.tar).html(tgDom);
         }
     };
-    gsIncomeWap.prototype.ConList=function (options) {
+    GsIncomeWap.prototype.ConList=function (options) {
         var ggDom = '',
             tgTit = options.tit,
             tgImg = options.src,
@@ -315,7 +315,7 @@
 
         $(options.tar).html(ggDom);
     };
-    gsIncomeWap.prototype.CommBot=function (options) {
+    GsIncomeWap.prototype.CommBot=function (options) {
         var tgDom = '',
             tgImg = options.src,
             tgUrl = options.android.url,
@@ -342,7 +342,7 @@
             $(options.tar).html(tgDom);
         }
     };
-    gsIncomeWap.prototype.downBtn=function (options) {
+    GsIncomeWap.prototype.downBtn=function (options) {
         var tgDom = '',
             tgTxt = options.txt,
             tgUrl = options.url,
@@ -360,7 +360,7 @@
         tgDom += '" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql">'+tgTxt+'</a>'+jcCodeDom+'</div>';
         $(options.tar).html(tgDom);
     };
-    gsIncomeWap.prototype.lkV2=function (options) {
+    GsIncomeWap.prototype.lkV2=function (options) {
         var tgDom = '',
             tgImg = options.src,
             tgUrl = options.android.url,
@@ -603,7 +603,7 @@
             window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
         };
     };
-    gsIncomeWap.prototype.anim1=function (options) {
+    GsIncomeWap.prototype.anim1=function (options) {
         var tgDom = '',
             tgImg1 = options.src1,
             tgImg2 = options.src2,
@@ -744,5 +744,58 @@
             };
         };
     };
-    window.gsTgWap = new gsIncomeWap();
+    GsIncomeWap.prototype.gamedown=function (options) {
+        var tgDom = '',
+            tgTit = options.tit,
+            tgCat = options.cat,
+            tgSize = options.size,
+            tgScore = options.score,
+            tgBtn = options.btn,
+            tgImg = options.src,
+            tgUrl = options.android.url,
+            tgCount = options.android.countId,
+            jcCodeDom = '',
+            openTarget = '',
+            newWin = options.newWin,tag = '';
+        if(isiOS){
+            tgUrl = options.ios.url;
+            tgCount = options.ios.countId;
+        }
+        if(options.jcCode){
+            jcCodeDom += gsCountAnalysis(options.jcCode);
+        }
+        if(newWin === true){
+            openTarget = 'target="_blank"'
+        }
+        tag = '<img style="display: block;position: absolute;left: 0;bottom: 0;width: 24px;height: 13px;" src="http://image.gamersky.com/webimg15/adtag.png" alt="gg">';
+        tgDom += '<li>';
+        tgDom += '<a '+openTarget+' class="ymw-list-mgame-img countHit countHitSql" data-itemid="' + tgCount + '" href="' + tgUrl + '" style="position: relative;">';
+        tgDom += '<img src="' + tgImg + '" alt="' + tgTit + '">'+tag;
+        tgDom += '</a>';
+        tgDom += '<div class="ymw-list-mgame-txt">';
+        tgDom += '<h5><a '+openTarget+' class="countHit countHitSql" data-itemid="' + tgCount + '" href="' + tgUrl + '">' + tgTit + '</a></h5>';
+        tgDom += '<p>' + tgCat + '&nbsp;|&nbsp;' + tgSize + '</p>';
+        tgDom += '<i class="ymw-star ymw-star' + tgScore + '"></i>';
+        tgDom += '</div>';
+        tgDom += '<a '+openTarget+' href="' + tgUrl + '" class="ymw-list-mgame-down countHit countHitSql" data-itemid="' + tgCount + '">' + tgBtn + '</a>';
+        tgDom += jcCodeDom + '</li>';
+
+        function showTg() {
+            var $iosTarUl = $('.ymw-iosOnly').eq(0),
+                $andTarUl = $('.ymw-androidOnly').eq(0),
+                $iosTar = $iosTarUl.find('li').eq(1),
+                $andTar = $andTarUl.find('li').eq(1);
+            $iosTarUl.find('li').eq(-1).remove();
+            $andTarUl.find('li').eq(-1).remove();
+            $(tgDom).insertAfter($iosTar);
+            $(tgDom).insertAfter($andTar);
+        }
+
+        var ldImage = new Image();
+        ldImage.src = tgImg;
+        ldImage.onload = function () {
+            showTg();
+        }
+    };
+    window.gsTgWap = new GsIncomeWap();
 })(jQuery);

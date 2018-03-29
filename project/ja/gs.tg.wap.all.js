@@ -87,9 +87,14 @@
             url:'wap/wap.top.fixed.v1.js'
         },
         {//首页触发性滚动横幅
-            open:true,
+            open:false,
             tid:'#gsTgWapIndexAnim1',
             url:'wap/wap.index.anim1.v1.js'
+        },
+        {//首页下载下方推荐临时广告位
+            open:true,
+            tid:'#gsTgWapIndexGamedown',
+            url:'wap/wap.index.gamedown.v1.js'
         }
     ];
     function loadGsTgJs(tid,url) {
