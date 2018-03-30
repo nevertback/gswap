@@ -1,7 +1,8 @@
 (function ($) {
     var gsOption = {};gsOption.android = {};gsOption.ios = {};
-    gsOption.src1 ='http://image.gamersky.com/gameshd/2018/20180319_cks_170_2.jpg';
-    gsOption.src2 ='http://image.gamersky.com/gameshd/2018/20180319_gd_340_12.jpg';
+    gsOption.src1 ='http://image.gamersky.com/webimg13/zhuanti/test/gsTgWapIndexAnim10.jpg';
+    gsOption.src2 ='http://image.gamersky.com/webimg13/zhuanti/test/gsTgWapIndexAnim11.jpg';
+    gsOption.txt ='侏罗纪世界：进化上线Steam 6月12发售预购价150元';
     gsOption.android.url = 'https://adl.netease.com/d/g/clx/c/youmin';
     gsOption.android.countId = '1009575';//安卓二次点击下载
     gsOption.ios.url = 'https://adl.netease.com/d/g/clx/c/youmin';

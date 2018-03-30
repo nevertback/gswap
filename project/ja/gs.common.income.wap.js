@@ -605,11 +605,22 @@
     };
     GsIncomeWap.prototype.anim1=function (options) {
         var tgDom = '',
+            tgTxt = options.txt,
             tgImg1 = options.src1,
             tgImg2 = options.src2,
             tgUrl = options.android.url,
             tgCount = options.android.countId,
             jcCodeDom = '',tgTag = '',tgStyle;
+        var sizeConfig = {
+            wrapPadding:0.24,
+            imgRatio:32/9,
+            circleXY:{x:0.3,y:0.2},
+            offset:{
+                in:100,
+                out:100
+            }
+
+        };
         if(isiOS){
             tgUrl = options.ios.url;
             tgCount = options.ios.countId;
@@ -621,13 +632,16 @@
             tgTag += '<div class="gsTgWapIndexAnim1Tg"></div>';
         }
         tgStyle = '<style>' +
-            '#gsTgWapIndexAnimMain{position: relative;}' +
+            '#gsTgWapIndexAnimMain{position: relative;background-color: #fff;padding: 0.24rem '+sizeConfig.wrapPadding+'rem;}' +
+            '#gsTgWapIndexAnimMain a{position: absolute;left: 0;top: 0;width: 100%;height: 100%;}' +
+            '#gsTgWapIndexAnimMainTxt{position: relative;margin-bottom: 0.15rem;line-height: .48rem;font-size: .32rem;color: #111;}' +
             '#gsTgWapIndexAnimArea{position: relative;}' +
             '#gsTgWapIndexAnimArea canvas{display: block;}' +
             '#gsTgWapIndexAnimAreaCanvas{position: absolute;left: 0;top: 0;}' +
             '</style>';
         tgDom += tgStyle;
         tgDom += '<div id="gsTgWapIndexAnimMain">';
+        tgDom += '<div id="gsTgWapIndexAnimMainTxt">'+tgTxt+'</div>';
         tgDom += '<div id="gsTgWapIndexAnimArea"><canvas id="gsTgWapIndexAnimAreaCanvasBg"></canvas><canvas id="gsTgWapIndexAnimAreaCanvas"></canvas></div>';
         tgDom += '<a target="_blank" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="gsTgWapLkInnerLink countHit countHitSql">'+'</a>'+tgTag+jcCodeDom+'</div>';
 
@@ -652,11 +666,10 @@
                     cvs = document.getElementById('gsTgWapIndexAnimAreaCanvas'),
                     ctx = cvs.getContext('2d'),
                     $ww = $(window).width()>720?720:$(window).width(),
-                    $ah = $ww/16*9,circlePos = {x:0.3,y:0.2},
-                    offsetDst = {
-                        in:50,
-                        out:50
-                    };
+                    baseScale = $ww/7.2;
+                    $ww = $ww - sizeConfig.wrapPadding*2*baseScale;
+                    var $ah = $ww/sizeConfig.imgRatio,circlePos = sizeConfig.circleXY,
+                    offsetDst = sizeConfig.offset;
                 var canvasOffscreen = document.createElement('canvas');
                 canvasOffscreen.width = $ww;
                 canvasOffscreen.height = $ah;
@@ -699,7 +712,7 @@
                             var cbt = cvsBg.getBoundingClientRect().top;
                             if(cvsIn(cbt) === 'in'){
                                 openAnim = true;
-                                that.drawAnim(cbt,calcH);
+                                that.drawAnim(cbt - offsetDst.in,calcH - offsetDst.out - offsetDst.in);
                             }else{
                                 openAnim = false;
                             }
