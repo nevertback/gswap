@@ -1036,3 +1036,32 @@ function removeYmwLoginPop() {
     }
     contentVideo.init();
 })(jQuery);
+(function ($) {
+    $.fn.extend({
+        GsExtFncPicTips:function () {
+            var _this = this;
+            _this.find('.picact').each(function () {
+                var $ts = $(this),$dad = $ts.closest('p');
+                $dad.css({
+                    marginBottom:'0.1rem',
+                    color:'#888',
+                    fontSize:'0.24rem',
+                    lineHeight:'0.4rem'
+                })
+            })
+        }
+    })
+    //功能扩展
+    var gsExt = {
+        picTips:function(open){
+            if(open === true){
+                $('.gsAreaContextArt').GsExtFncPicTips();
+            }
+        },
+        init:function () {
+            //开启文章内容图注功能
+            this.picTips(false);
+        }
+    }
+    gsExt.init();
+})(jQuery);
