@@ -1010,4 +1010,72 @@ function removeYmwLoginPop() {
     if($('#gsAreaContext').length>0){
         hideContext.init();
     }
+
+    var contentVideo = {
+        topVideo:function (tar,player,vid) {
+            var playerDom;
+            switch($.trim(player)){
+                case 'qq':
+                    playerDom = '<iframe frameborder="0" width="100%" height="100%" src="https://v.qq.com/iframe/player.html?vid='+vid+'&tiny=0&auto=0" allowfullscreen></iframe>';
+                    break;
+                case 'youku':
+                    playerDom = '<iframe height="100%" width="100%" src="http://player.youku.com/embed/'+vid+'==" frameborder=0 allowfullscreen></iframe>';
+                    break;
+            }
+            if(typeof playerDom !== 'undefined'){
+                tar.html(playerDom).css('display','block');
+            }
+        },
+        init:function () {
+            var $contentTopVideo = $('#ymwContentTopVideo'),videoDataFrom = $('#ymwTopVideoInfos .vd');
+            if($contentTopVideo.length>0){
+                var playerSet = videoDataFrom.data('sitename'),vid = videoDataFrom.data('vid');
+                this.topVideo($contentTopVideo,playerSet,vid);
+            }
+        }
+    }
+    contentVideo.init();
+})(jQuery);
+(function ($) {
+    //功能扩展1
+    $.fn.extend({
+        GsExtFncPicTips:function () {
+            var _this = this;
+            _this.find('.picact').each(function () {
+                var $ts = $(this),$dad = $ts.closest('p');
+                $dad.css({
+                    marginBottom:'0.1rem',
+                    color:'#888',
+                    fontSize:'0.24rem',
+                    lineHeight:'0.4rem'
+                })
+            })
+        }
+    });
+    //功能扩展2
+    var gsExtFncs = {
+        addTgMonitor:function () {
+            var timeStamp = new Date().getTime();
+            $.getScript('http://j.gamersky.com/common/tg/allsite.tg.monitor.wap.js?'+timeStamp);
+        }
+    };
+    //功能扩展
+    var gsExt = {
+        picTips:function(open){
+            if(open === true){
+                $('.gsAreaContextArt').GsExtFncPicTips();
+            }
+        },
+        tgMonitor:function(open){
+            if(open === true){
+                gsExtFncs.addTgMonitor();
+            }
+        },
+        init:function () {
+            //开启文章内容图注功能
+            this.picTips(false);
+            this.tgMonitor(true);
+        }
+    };
+    gsExt.init();
 })(jQuery);

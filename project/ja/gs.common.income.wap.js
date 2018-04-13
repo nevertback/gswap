@@ -109,6 +109,29 @@
             $(options.tar).html(tgDom);
         }
     };
+    GsIncomeWap.prototype.baseDiy=function (options) {
+        var tgDom = '',
+            tgImg = options.src,
+            tgUrl = options.android.url,
+            tgCount = options.android.countId,
+            tgDiy = options.diy,
+            tgDiyDad = options.diyDad,
+            jcCodeDom = '',tgTag = '';
+        if(isiOS){
+            tgUrl = options.ios.url;
+            tgCount = options.ios.countId;
+        }
+        if(options.jcCode){
+            jcCodeDom += gsCountAnalysis(options.jcCode);
+        }
+        tgTag += createTg2(options.tg);
+        tgDom += '<div style="position: relative;'+tgDiyDad+'"><a style="display: block;position: relative;width: 100%;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql"><img style="display: block;width: 100%;'+tgDiy+'" src="' + tgImg + '"/>'+tgTag+'</a>'+jcCodeDom+'</div>';
+        var ldImage = new Image();
+        ldImage.src = tgImg;
+        ldImage.onload = function () {
+            $(options.tar).html(tgDom);
+        }
+    };
     GsIncomeWap.prototype.fixedBot=function (options) {
         var tgDom = '',
             tgImg = options.src,
@@ -207,7 +230,7 @@
                 });
             };
         }
-        if($('.ymwTabNavFixed').length<1&&$('#gsKuListNav').length<1){
+        if($('.ymwTabNavFixed').length<1&&$('#gsKuListNav').length<1&&$('#qzMain').length<1&&$('.gsZqNav').length<1){
             addAds();
         }
     };
@@ -348,7 +371,8 @@
             tgUrl = options.url,
             tgCount = options.countId,
             isOld = options.isOld,
-            jcCodeDom = '';
+            jcCodeDom = '',
+            excludeGameId,gameid,tarShow = true;
         if(options.jcCode){
             jcCodeDom += gsCountAnalysis(options.jcCode);
         }
@@ -358,7 +382,22 @@
             tgDom += '<div class="yu-btn-wrap"><a id="dow';
         }
         tgDom += '" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql">'+tgTxt+'</a>'+jcCodeDom+'</div>';
-        $(options.tar).html(tgDom);
+        //设置某些游戏不显示诱导
+        if(typeof options.excludeGame !== "undefined"){
+            gameid = parseInt($('.userrating').eq(0).attr('gameId'));
+            if(isOld === true){
+                gameid = parseInt($('#gsDownloadContentGameId').data('gameid'));
+            }
+            excludeGameId = options.excludeGame;
+            $.each(excludeGameId,function (i,item) {
+                if(item === gameid){
+                    tarShow = false;
+                }
+            });
+        }
+        if(tarShow === true){
+            $(options.tar).html(tgDom);
+        }
     };
     GsIncomeWap.prototype.lkV2=function (options) {
         var tgDom = '',
@@ -629,21 +668,21 @@
             jcCodeDom += gsCountAnalysis(options.jcCode);
         }
         if(options.tg){
-            tgTag += '<div class="gsTgWapIndexAnim1Tg"></div>';
+            tgTag += '<span style="display: block;position: absolute;left: 0;top: 0.08rem;width: 0.5rem;height: 0.3rem;line-height: 0.3rem;font-size: 0.2rem;color:#e7222a;text-indent: 0;text-align: center;box-sizing:border-box;border:1px solid #efd9d9;">广告</span>';
         }
         tgStyle = '<style>' +
             '#gsTgWapIndexAnimMain{position: relative;background-color: #fff;padding: 0.24rem '+sizeConfig.wrapPadding+'rem;}' +
             '#gsTgWapIndexAnimMain a{position: absolute;left: 0;top: 0;width: 100%;height: 100%;}' +
-            '#gsTgWapIndexAnimMainTxt{position: relative;margin-bottom: 0.15rem;line-height: .48rem;font-size: .32rem;color: #111;}' +
+            '#gsTgWapIndexAnimMainTxt{position: relative;margin-bottom: 0.15rem;min-height: 0.48rem;line-height: .48rem;font-size: .32rem;color: #111;text-indent: 0.7rem;}' +
             '#gsTgWapIndexAnimArea{position: relative;}' +
             '#gsTgWapIndexAnimArea canvas{display: block;}' +
             '#gsTgWapIndexAnimAreaCanvas{position: absolute;left: 0;top: 0;}' +
             '</style>';
         tgDom += tgStyle;
         tgDom += '<div id="gsTgWapIndexAnimMain">';
-        tgDom += '<div id="gsTgWapIndexAnimMainTxt">'+tgTxt+'</div>';
+        tgDom += '<div id="gsTgWapIndexAnimMainTxt">'+tgTag+tgTxt+'</div>';
         tgDom += '<div id="gsTgWapIndexAnimArea"><canvas id="gsTgWapIndexAnimAreaCanvasBg"></canvas><canvas id="gsTgWapIndexAnimAreaCanvas"></canvas></div>';
-        tgDom += '<a target="_blank" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="gsTgWapLkInnerLink countHit countHitSql">'+'</a>'+tgTag+jcCodeDom+'</div>';
+        tgDom += '<a target="_blank" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="gsTgWapLkInnerLink countHit countHitSql">'+'</a>'+jcCodeDom+'</div>';
 
         function addCount(cid) {
             $.ajax({

@@ -938,12 +938,33 @@ function removeYmwLoginPop() {
                 var $this = $(this),aid = $this.attr('data-aid');
                 thObj.clkEvents('contentTuijian',aid,1019004);
             });
+            $(document).on('click','.gsOpenAppBtn',function () {
+                var $this = $(this),
+                    approle = $this.data('approle'),
+                    apprel = $this.data('apprel'),
+                    appcid = $this.data('appcid');
+                if($.trim(appcid) === '' || typeof appcid === "undefined"){
+                    appcid = $('#wapcountn').attr('generalId');
+                };
+                thObj.clkEvents(approle,appcid,apprel);
+            });
         },
         init:function () {
             this.writeBtn();
             this.bindClk();
         }
     };
+    function ReWriteWapCount() {
+        $('.gsOpenAppBtn').each(function () {
+            var $ts = $(this),ctid = $ts.attr('data-wapitemid');
+            $ts.attr('data-itemid',ctid);
+        });
+        $('.recommend-app-btn').each(function () {
+            var $ts = $(this);
+            $ts.removeAttr('target href');
+        });
+    }
+    ReWriteWapCount();
     openAppJs.init();
 })(jQuery);
 (function ($) {
@@ -1037,6 +1058,7 @@ function removeYmwLoginPop() {
     contentVideo.init();
 })(jQuery);
 (function ($) {
+    //功能扩展1
     $.fn.extend({
         GsExtFncPicTips:function () {
             var _this = this;
@@ -1050,7 +1072,14 @@ function removeYmwLoginPop() {
                 })
             })
         }
-    })
+    });
+    //功能扩展2
+    var gsExtFncs = {
+        addTgMonitor:function () {
+            var timeStamp = new Date().getTime();
+            $.getScript('http://j.gamersky.com/common/tg/allsite.tg.monitor.wap.js?'+timeStamp);
+        }
+    };
     //功能扩展
     var gsExt = {
         picTips:function(open){
@@ -1058,10 +1087,16 @@ function removeYmwLoginPop() {
                 $('.gsAreaContextArt').GsExtFncPicTips();
             }
         },
+        tgMonitor:function(open){
+            if(open === true){
+                gsExtFncs.addTgMonitor();
+            }
+        },
         init:function () {
             //开启文章内容图注功能
             this.picTips(false);
+            this.tgMonitor(true);
         }
-    }
+    };
     gsExt.init();
 })(jQuery);
