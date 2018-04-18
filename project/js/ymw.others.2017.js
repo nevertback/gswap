@@ -903,8 +903,8 @@ function removeYmwLoginPop() {
             var $relBtn = $('.ymw-rel-list .ymw-list-tp1').find('a');
             $relBtn.addClass('has-open-app-tags openAppRelContentBtn countHit countHitSql');
             $relBtn.each(function () {
-                var $this = $(this),$href = $this.attr('href'),indexContent = $href.indexOf('Content-'),aid;
-                aid = parseInt($href.slice(indexContent).replace('Content-','').replace('.html',''));
+                var $this = $(this),aid;
+                aid = parseInt($this.closest('li').find('.cy_comment').attr('data-sid'));
                 $this.removeAttr('href').attr({'data-aid':aid,'data-itemid':1019002});
             })
         },
