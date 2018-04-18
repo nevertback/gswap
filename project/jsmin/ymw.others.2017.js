@@ -784,6 +784,16 @@ function removeYmwLoginPop() {
                         });
                     }
                     break;
+                case 'contentGongLue':
+                    if(isiOS){
+                        fakeAlink('https://a.gamersky.com/app/news/'+cid+'/refer/'+rel);
+                    }else{
+                        thObj.androidJump({
+                            schema: "home?action=news&id="+cid+'&referer='+rel,
+                            failUrl: "http://a.gamersky.com/app/?source=WapGongLue"
+                        });
+                    }
+                    break;
                 case 'strategy':
                     if(isiOS){
                         fakeAlink('https://a.gamersky.com/app/game/'+cid+'/strategiesSet/refer/'+rel);
@@ -941,7 +951,7 @@ function removeYmwLoginPop() {
             $(document).on('click','.gsOpenAppBtn',function () {
                 var $this = $(this),
                     approle = $this.data('approle'),
-                    apprel = $this.data('apprel'),
+                    apprel = $this.attr('data-apprel'),
                     appcid = $this.data('appcid');
                 if($.trim(appcid) === '' || typeof appcid === "undefined"){
                     appcid = $('#wapcountn').attr('generalId');
@@ -1033,7 +1043,7 @@ function removeYmwLoginPop() {
     }
 
     var contentVideo = {
-        topVideo:function (tar,player,vid) {
+        topVideo:function (tar,player,vid,vurl) {
             var playerDom;
             switch($.trim(player)){
                 case 'qq':
@@ -1042,19 +1052,37 @@ function removeYmwLoginPop() {
                 case 'youku':
                     playerDom = '<iframe height="100%" width="100%" src="http://player.youku.com/embed/'+vid+'==" frameborder=0 allowfullscreen></iframe>';
                     break;
+                case 'bi':
+                    playerDom = '<div class="ymwContentTopVideoBi" style="opacity: 0;transition:all 0.25s ease;width: 7.2rem;height: 4.5rem;overflow: hidden;"><div style="margin-top:-0.85rem;width: 7.2rem;height: 5.35rem;"><iframe height="100%" width="100%" src="'+vurl+'" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div></div>';
+                    tar.css({
+                        'height':'4.5rem',
+                        'background':'url(http://image.gamersky.com/webimg13/lib/icons/loading.gif) center center no-repeat',
+                        'background-size':'0.3rem auto'
+                    });
+                    break;
+                case 'biback':
+                    var tmpUrl = vurl,calcUrl;
+                    calcUrl = tmpUrl.match(/av[0-9]*/)[0].replace('av','');
+                    playerDom = '<iframe height="100%" width="100%" src="//player.bilibili.com/player.html?aid='+calcUrl+'" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>';
+                    break;
             }
             if(typeof playerDom !== 'undefined'){
                 tar.html(playerDom).css('display','block');
+                if(tar.find('.ymwContentTopVideoBi').length>0){
+                    setTimeout(function () {
+                        tar.find('.ymwContentTopVideoBi').css('opacity',1);
+                    },2000);
+                }
             }
         },
         init:function () {
             var $contentTopVideo = $('#ymwContentTopVideo'),videoDataFrom = $('#ymwTopVideoInfos .vd');
             if($contentTopVideo.length>0){
-                var playerSet = videoDataFrom.data('sitename'),vid = videoDataFrom.data('vid');
-                this.topVideo($contentTopVideo,playerSet,vid);
+                var playerSet = videoDataFrom.data('sitename'),vid = videoDataFrom.data('vid'),vurl = videoDataFrom.data('url');
+                this.topVideo($contentTopVideo,playerSet,vid,vurl);
             }
         }
-    }
+    };
     contentVideo.init();
 })(jQuery);
 (function ($) {

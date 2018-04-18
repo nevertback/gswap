@@ -12,7 +12,7 @@
     <meta name="description" content="游民星空手机客户端是游民人在移动互联时代为大家带来的全新资讯阅读形式，植根于游民星空深厚的游戏积淀，满足广大用户需求，带来方便的即时阅读体验。">
     <meta itemprop="name" content="游民星空手机客户端" />
     <meta itemprop="image" content="http://image.gamersky.com/webimg15/a/30/suoluetu.jpg" />
-    <link href="//j.gamersky.com/g/normalize.min.css" rel="stylesheet">
+    <link href="//a.gamersky.com/cssjs/normalize.min.css" rel="stylesheet">
     <style>
         .Bot,.QZnav,.zt-section{min-width:1100px}
         .Bot,body{font-size:14px}
@@ -133,7 +133,7 @@
         .OpenGuide-icon{background-repeat:no-repeat;vertical-align:middle;display:none;width:16px;height:16px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSIxN3B4IiB2aWV3Qm94PSIwIDAgMzQgMTciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzg2LjAwMDAwMCwgLTEzLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzODcuMDAwMDAwLCA3LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS0yIiB4PSIwIiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjwvcmVjdD4KICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iUGF0aC0yLUNvcHktMiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuODAwMjcxNzM5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBvaW50cz0iMSA3LjYgMTYgMjEuMSAzMSA3LjYiPjwvcG9seWxpbmU+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=);background-size:16px 16px;-webkit-animation:OpenGuide-arrow 1s linear infinite;animation:OpenGuide-arrow 1s linear infinite;margin-left:12px}
         .OpenGuide-icon--show{display:inline-block}
     </style>
-    <script type="text/javascript" src="//j.gamersky.com/g/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="//a.gamersky.com/cssjs/jquery-1.8.3.js"></script>
     <!-- 创建时间：20170412 设计：Drakedooog 前端：MrrrTian 修改：20180117 -->
 </head>
 <body>
@@ -168,12 +168,19 @@
 <!-- 加载页面JS -->
 <script>
     var appLinks = {
-        android:'http://btfile.gamersky.com/2018/01/gamersky_v3.5.2_wap.apk',//安卓地址
         ios:'https://itunes.apple.com/cn/app/you-min-xing-kong/id886118205?mt=8',//IOS地址
-        wap:'http://a.gamersky.com/app/wap.html',
+        wap:'http://a.gamersky.com/app/',
         QRcode:'http://image.gamersky.com/webimg15/a/30/code20170621.png'
     };
-    $('#appLinksAndroid').attr('href',appLinks.android);
+    $.ajax({
+        dataType:'json',
+        cache:false,
+        url:'data/apk.url.json',
+        success:function (data) {
+            var apkList = data;
+            $('#appLinksAndroid').attr('href',apkList.wap);
+        }
+    });
     $('#appLinksIos').attr('href',appLinks.ios);
     $('#appLinksQRcode').attr('src',appLinks.QRcode);
     $('#appLinksWap').attr('href',appLinks.wap);
@@ -254,12 +261,29 @@
                 }
             }
             $('.OpenGuide-clickHintLink').attr('href',linkUrl);
+            function iframeOpenUrl(url) {
+                var _this = this;
+                var ifm = document.createElement('iframe');
+                ifm.frameborder = '0';
+                ifm.style.cssText = 'display:none;border:0;width:0;height:0;';
+                document.body.appendChild(ifm);
+                ifm.src = url;
+            }
+            function linkOpenUrl(url) {
+                var _this = this;
+                var aDom = document.createElement('a');
+                aDom.style.cssText = 'display:none;border:0;width:0;height:0;';
+                aDom.src = url;
+                document.body.appendChild(aDom);
+                aDom.click();
+            }
+            //$('body').append('test3');
             if(browser.isIosChrome() === true){
                 setTimeout(function () {
-                    //window.location.href = appLinks.ios;
+                    window.open(appLinks.ios);
                 },500);
             }else{
-                //window.location.href = appLinks.ios;
+                linkOpenUrl(appLinks.ios);
             }
         }
         var isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
