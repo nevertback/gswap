@@ -6,5 +6,6 @@
     gsOption.ios.url = 'https://adl.netease.com/d/g/lh/c/ymxk';
     gsOption.ios.countId = '682838';
     gsOption.tar = '#gsTgWapTop';
-    //gsTgWap.base(gsOption);
+    gsTgWap.base(gsOption);
+    $('header').find('.ymw-app-open').hide();
 })(jQuery);

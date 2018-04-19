@@ -1,5 +1,6 @@
 (function ($) {
-    var basepath = 'http://ja1.gamersky.com/';
+    //var basepath = 'http://ja2.gamersky.com/';
+    var basepath = 'ja/';
     var tgList = [
         {//wap首页底部浮窗（全站通发）(V1)
             open:true,
@@ -116,7 +117,7 @@
         }
     }
     var ntz = new Date().getTime();
-    $.getScript('http://ja1.gamersky.com/gs.common.income.wap.js',function () {
+    $.getScript('http://ja2.gamersky.com/gs.common.income.wap.js',function () {
         loadList();
     });
 })(jQuery);
