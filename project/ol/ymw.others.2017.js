@@ -108,7 +108,7 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://cm1.gamersky.com/apirating/getwanrating",
+            url: "//cm1.gamersky.com/apirating/getwanrating",
             data: { 'Idlist': ids },
             success: function (data) {
                 if (data.status == 'ok') {
@@ -129,7 +129,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://cm1.gamersky.com/apirating/addwanRating",
+                url: "//cm1.gamersky.com/apirating/addwanRating",
                 data: { 'Rating': JSON2.stringify({ "GenneralId": gameId, 'Sorce': "1", 'Type': type,'FromDevice':1 }) },
                 success: function (data) {
                     if (data.status == "ok") {
@@ -166,7 +166,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://cm1.gamersky.com/apirating/getuserrating",
+                url: "//cm1.gamersky.com/apirating/getuserrating",
                 data: { 'Rating': JSON2.stringify({ "GenneralId": gameId, 'Type': "0" }) },
                 success: function (data) {
                     if (data.sorce > 0) {
@@ -192,7 +192,7 @@
             var $this = $(this);
             var gameId = $this.attr("gameId");
             $.ajax({
-                type: "GET", dataType: "jsonp", url: "http://cm1.gamersky.com/apirating/getplayersscore",
+                type: "GET", dataType: "jsonp", url: "//cm1.gamersky.com/apirating/getplayersscore",
                 data: { jsondata: JSON2.stringify({ genneralId: gameId, num: "10" }) },
                 success: function (responseJson) {
                     if (responseJson.status == 'ok') {
@@ -236,7 +236,7 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://cm1.gamersky.com/apirating/Judge",
+            url: "//cm1.gamersky.com/apirating/Judge",
             data: { 'Idlist': ids },
             success: function (data) {
                 if (data.status == "ok") {
@@ -270,11 +270,11 @@
         $this.on("click", "#qqLogin", function (event) {
             event.preventDefault();
             var returnUrl = window.location.href;
-            window.location.href = "http://i.gamersky.com/oauth/authorizelogin?authorizetype=qq&returnUrl=" + encodeURI(returnUrl);
+            window.location.href = "//i.gamersky.com/oauth/authorizelogin?authorizetype=qq&returnUrl=" + encodeURI(returnUrl);
         }).on("click", "#sinaLogin", function (event) {
             event.preventDefault();
             var returnUrl = window.location.href;
-            window.location.href = "http://i.gamersky.com/oauth/authorizelogin?authorizetype=sina&returnUrl=" + encodeURI(returnUrl);
+            window.location.href = "//i.gamersky.com/oauth/authorizelogin?authorizetype=sina&returnUrl=" + encodeURI(returnUrl);
         })
     };
     $.fn.insertYmwLoginPop = function () {
@@ -283,7 +283,7 @@
         // var ymwLoginDom = '';
         // ymwLoginDom += '<div class="ymw-loginpopMsk"></div><div class="ymw-loginpop"><h5>登录后参加互动</h5><p><span>你可以通过一下方式登录</span></p><div class="ymw-loginpop-btns">';
         // 游民登录
-        // ymwLoginDom += '<a target="_blank" href="http://i.gamersky.com/user/login.html?from=' + returnUrl + '" class="ymw-loginpop-gs"></a>';
+        // ymwLoginDom += '<a target="_blank" href="//i.gamersky.com/user/login.html?from=' + returnUrl + '" class="ymw-loginpop-gs"></a>';
         //QQ登录
         // ymwLoginDom += '<a target="_blank" href="javascript:;" id="qqLogin" class="ymw-loginpop-qq"></a>';
         //微博登录
@@ -316,7 +316,7 @@
         }
         else {
             $.ajax({
-                type: "GET", dataType: "jsonp", url: "http://i.gamersky.com/api/logincheck",
+                type: "GET", dataType: "jsonp", url: "//i.gamersky.com/api/logincheck",
                 success: function (responseJson) {
                     if (responseJson.status == "ok") {
                         $this.attr("src", responseJson.userface);
@@ -339,7 +339,7 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://cm1.gamersky.com/apirating/gamemore",
+            url: "//cm1.gamersky.com/apirating/gamemore",
             data: { 'jsondata': JSON2.stringify({ "GenneralId": gameId, number: moreNumber }) },
             success: function (data) {
                 if (data.status == "ok") {
@@ -384,7 +384,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://cm1.gamersky.com/apirating/starstatistics",
+                url: "//cm1.gamersky.com/apirating/starstatistics",
                 data: { "GenneralId": gameId },
                 success: function (data) {
                     if (data.status == "ok") {
@@ -725,8 +725,7 @@ function removeYmwLoginPop() {
             vv.loadSchema(defaultCfg);
         },
         clkEvents:function (opt,cid,rel) {
-            var thObj = this,
-                isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            var thObj = this,isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
             switch (opt) {
                 case 'home':
                     if(isiOS){
@@ -781,6 +780,16 @@ function removeYmwLoginPop() {
                         thObj.androidJump({
                             schema: "home?action=news&id="+cid+'&referer='+rel,
                             failUrl: "http://a.gamersky.com/app/?source=WapNeiRong"
+                        });
+                    }
+                    break;
+                case 'contentGongLue':
+                    if(isiOS){
+                        fakeAlink('https://a.gamersky.com/app/news/'+cid+'/refer/'+rel);
+                    }else{
+                        thObj.androidJump({
+                            schema: "home?action=news&id="+cid+'&referer='+rel,
+                            failUrl: "http://a.gamersky.com/app/?source=WapGongLue"
                         });
                     }
                     break;
@@ -893,8 +902,8 @@ function removeYmwLoginPop() {
             var $relBtn = $('.ymw-rel-list .ymw-list-tp1').find('a');
             $relBtn.addClass('has-open-app-tags openAppRelContentBtn countHit countHitSql');
             $relBtn.each(function () {
-                var $this = $(this),$href = $this.attr('href'),indexContent = $href.indexOf('Content-'),aid;
-                aid = parseInt($href.slice(indexContent).replace('Content-','').replace('.html',''));
+                var $this = $(this),aid;
+                aid = parseInt($this.closest('li').find('.cy_comment').attr('data-sid'));
                 $this.removeAttr('href').attr({'data-aid':aid,'data-itemid':1019002});
             })
         },
@@ -918,7 +927,7 @@ function removeYmwLoginPop() {
         },
         bindClk:function () {
             var thObj = this;
-            $('.openGamerskyApp').on('click',function () {
+            $(document).on('click','.openGamerskyApp',function () {
                 var $this = $(this),role = $this.attr('data-approle'),cid,rel = $this.attr('data-apprel');
                 if($this.hasClass('gsOpenAppHome') !== true){
                     if(role === 'content'){
@@ -930,7 +939,7 @@ function removeYmwLoginPop() {
                     }
                 }
             });
-            $('.openGamerskyAppDiy').on('click',function () {
+            $(document).on('click','.openGamerskyAppDiy',function () {
                 var $this = $(this),cid = $this.data('appcid'),rel = countlist.recommend.okcount;
                 thObj.clkEvents('contentTuijian',cid,rel);
             });
@@ -938,12 +947,33 @@ function removeYmwLoginPop() {
                 var $this = $(this),aid = $this.attr('data-aid');
                 thObj.clkEvents('contentTuijian',aid,1019004);
             });
+            $(document).on('click','.gsOpenAppBtn',function () {
+                var $this = $(this),
+                    approle = $this.data('approle'),
+                    apprel = $this.attr('data-apprel'),
+                    appcid = $this.data('appcid');
+                if($.trim(appcid) === '' || typeof appcid === "undefined"){
+                    appcid = $('#wapcountn').attr('generalId');
+                };
+                thObj.clkEvents(approle,appcid,apprel);
+            });
         },
         init:function () {
             this.writeBtn();
             this.bindClk();
         }
     };
+    function ReWriteWapCount() {
+        $('.gsOpenAppBtn').each(function () {
+            var $ts = $(this),ctid = $ts.attr('data-wapitemid');
+            $ts.attr('data-itemid',ctid);
+        });
+        $('.recommend-app-btn').each(function () {
+            var $ts = $(this);
+            $ts.removeAttr('target href');
+        });
+    }
+    ReWriteWapCount();
     openAppJs.init();
 })(jQuery);
 (function ($) {
@@ -1012,7 +1042,7 @@ function removeYmwLoginPop() {
     }
 
     var contentVideo = {
-        topVideo:function (tar,player,vid) {
+        topVideo:function (tar,player,vid,vurl) {
             var playerDom;
             switch($.trim(player)){
                 case 'qq':
@@ -1021,19 +1051,37 @@ function removeYmwLoginPop() {
                 case 'youku':
                     playerDom = '<iframe height="100%" width="100%" src="http://player.youku.com/embed/'+vid+'==" frameborder=0 allowfullscreen></iframe>';
                     break;
+                case 'bi':
+                    playerDom = '<div class="ymwContentTopVideoBi" style="opacity: 0;transition:all 0.25s ease;width: 7.2rem;height: 4.5rem;overflow: hidden;"><div style="margin-top:-0.85rem;width: 7.2rem;height: 5.35rem;"><iframe height="100%" width="100%" src="'+vurl+'" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div></div>';
+                    tar.css({
+                        'height':'4.5rem',
+                        'background':'url(http://image.gamersky.com/webimg13/lib/icons/loading.gif) center center no-repeat',
+                        'background-size':'0.3rem auto'
+                    });
+                    break;
+                case 'biback':
+                    var tmpUrl = vurl,calcUrl;
+                    calcUrl = tmpUrl.match(/av[0-9]*/)[0].replace('av','');
+                    playerDom = '<iframe height="100%" width="100%" src="//player.bilibili.com/player.html?aid='+calcUrl+'" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>';
+                    break;
             }
             if(typeof playerDom !== 'undefined'){
                 tar.html(playerDom).css('display','block');
+                if(tar.find('.ymwContentTopVideoBi').length>0){
+                    setTimeout(function () {
+                        tar.find('.ymwContentTopVideoBi').css('opacity',1);
+                    },2000);
+                }
             }
         },
         init:function () {
             var $contentTopVideo = $('#ymwContentTopVideo'),videoDataFrom = $('#ymwTopVideoInfos .vd');
             if($contentTopVideo.length>0){
-                var playerSet = videoDataFrom.data('sitename'),vid = videoDataFrom.data('vid');
-                this.topVideo($contentTopVideo,playerSet,vid);
+                var playerSet = videoDataFrom.data('sitename'),vid = videoDataFrom.data('vid'),vurl = videoDataFrom.data('url');
+                this.topVideo($contentTopVideo,playerSet,vid,vurl);
             }
         }
-    }
+    };
     contentVideo.init();
 })(jQuery);
 (function ($) {
@@ -1056,7 +1104,7 @@ function removeYmwLoginPop() {
     var gsExtFncs = {
         addTgMonitor:function () {
             var timeStamp = new Date().getTime();
-            $.getScript('http://j.gamersky.com/common/tg/allsite.tg.monitor.wap.js?'+timeStamp);
+            $.getScript('//j.gamersky.com/common/tg/allsite.tg.monitor.wap.js?'+timeStamp);
         }
     };
     //功能扩展
