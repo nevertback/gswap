@@ -180,21 +180,31 @@
     GsIncomeWap.prototype.fixedTop=function (options) {
         var tgDom = '',
             tgImg = options.src,
-            tgUrl = options.android.url,
-            tgCount = options.android.countId,
-            jcCodeDom = '',tgTag = '';
-        if(isiOS){
-            tgUrl = options.ios.url;
-            tgCount = options.ios.countId;
-        }
+            tgUrl = '',tgCount = '',jcCodeDom = '',tgTag = '';
         if(options.jcCode){
             jcCodeDom += gsCountAnalysis(options.jcCode);
         }
         tgTag += createTg2(options.tg);
         var sty1 = 'position: fixed;top: 0;left: 0;z-index: 99992;width: 100%;height: auto;box-shadow: 0 0 8px rgba(0,0,0,.5);',
-            sty2 = 'position: absolute;top: 0;right: 0;width: 35px;height: 36px;background:url(http://image.gamersky.com/webimg13/wap/2016/icons-adsclose.png) 0 0 no-repeat;background-size: 35px 36px;';
-        tgDom += '<div id="GsIncomeWapfixedTopHolder" style="margin: 0 auto;width: 100%;height: auto;"><img style="display: block;width: 100%;opacity: 0;" src="' + tgImg + '"/></div><div style="'+sty1+'" id="GsIncomeWapfixedTop"><a style="display: block;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql"><img style="display: block;width: 100%;" src="' + tgImg + '"/>'+tgTag+'</a><a style="'+sty2+'" id="GsIncomeWapfixedTopClose"></a>'+jcCodeDom+'</div>';
-
+            sty2 = 'position: absolute;top: 0;right: 0;width: 35px;height: 36px;background:url(//image.gamersky.com/webimg13/wap/2016/icons-adsclose.png) 0 0 no-repeat;background-size: 35px 36px;';
+        tgDom += '<div id="GsIncomeWapfixedTopHolder" style="margin: 0 auto;width: 100%;height: auto;"><img style="display: block;width: 100%;opacity: 0;" src="' + tgImg + '"/></div>';
+        tgDom += '<div style="'+sty1+'" id="GsIncomeWapfixedTop">';
+        if(options.className =='openGamerskyApp'){
+          var countId = options.countId,okcountId = options.okcountId;
+          tgDom += '<a style="display:block;" class="countHit countHitSql openGamerskyApp" data-approle="home" data-itemid="'+countId+'" data-apprel="'+okcountId+'"><img style="display:block;width:100%;" src="'+tgImg+'" />'+tgTag+'</a>';
+        }else{
+          if(isiOS){
+              tgUrl = options.ios.url;
+              tgCount = options.ios.countId;
+          }
+          if(android){
+              tgUrl = options.android.url;
+              tgCount = options.android.countId;
+          }
+          tgDom += '<a style="display: block;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql"><img style="display: block;width: 100%;" src="' + tgImg + '"/>'+tgTag+'</a>';
+        }
+        tgDom += '<a style="'+sty2+'" id="GsIncomeWapfixedTopClose"></a>'+jcCodeDom+'</div>';
+        
         function sbUc() {
             var $fad = $('#GsIncomeWapfixedTop'),fadW = $fad.width(),fadH = $fad.height(),ww = $(window).width(),$fadHolder = $('#GsIncomeWapfixedTopHolder');
             if (fadW/fadH <= 4/3) {
