@@ -849,5 +849,21 @@
             showTg();
         }
     };
+    GsIncomeWap.prototype.GotoAppContentBtn=function (options) {
+        var tgDom = '',
+            tgTxt = options.txt,
+            tgUrl = options.android.url,
+            tgCount = options.android.countId,
+            jcCodeDom = '';
+        if(isiOS){
+            tgUrl = options.ios.url;
+            tgCount = options.ios.countId;
+        }
+        if(options.jcCode){
+            jcCodeDom += gsCountAnalysis(options.jcCode);
+        }
+        tgDom += '<div style="position: relative;width: 100%;"><a target="_blank" style="display: block;margin:0 auto;width: 5.4rem;height: 0.8rem;line-height: 0.8rem;background-color: #e72029;font-size: 0.28rem;color: #fff !important;text-align: center;border-radius: 0.1rem;" href="' + tgUrl + '" data-itemid="' + tgCount + '" class="countHit countHitSql">'+tgTxt+'</a>'+jcCodeDom+'</div>';
+        $(options.tar).html(tgDom);
+    };
     window.gsTgWap = new GsIncomeWap();
 })(jQuery);

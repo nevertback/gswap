@@ -634,7 +634,7 @@ function removeYmwLoginPop() {
         getUrlInfos:function () {
             var urlInfos='';
             urlInfos = location.href;
-            if(urlInfos.indexOf('/news/')>0){
+            if(urlInfos.indexOf('/news/')>0 || urlInfos.match('/content') !== null){
                 return '新闻'
             }else if(urlInfos.indexOf('/gl/')>0 || urlInfos.indexOf('/sygl/')>0 || urlInfos.indexOf('/olgl/')>0){
                 return '攻略'
@@ -824,7 +824,7 @@ function removeYmwLoginPop() {
                     role:'contentNeiRong',
                     btnStyle:'display: block;margin: 0.3rem auto;width: 5.4rem;height: 0.8rem;line-height: 0.8rem;background-color: #e72029;font-size: 0.28rem;color: #fff !important;text-align: center;border-radius: 0.1rem;'
                 },
-                cfg = this.config;
+                cfg = this.config,createBtn = true;
             var strategyConfig = {
                 txt:'查询实用攻略资料，推荐APP攻略集',
                 role:'strategy'
@@ -834,6 +834,7 @@ function removeYmwLoginPop() {
             btnCid = cfg.content.cid;
             if(this.getUrlInfos() === '新闻'){
                 btnTxt = defaultCfg.txts[0];
+                createBtn = false;
             }else if(this.getUrlInfos() === '攻略'){
                 btnTxt = defaultCfg.txts[1];
             }else{
@@ -855,6 +856,9 @@ function removeYmwLoginPop() {
                 insertTar = cfg.content.backtarget;
             }else{
                 insertTar = cfg.content.target;
+            }
+            if(createBtn === false){
+                btnDom = '<div id="gsTgWapGotoAppContentBtn" style="padding: 0.3rem 0;"></div>';
             }
             if(cfg.content.pos === 'before'){
                 $(btnDom).insertBefore(insertTar);
@@ -936,7 +940,7 @@ function removeYmwLoginPop() {
         },
         bindClk:function () {
             var thObj = this;
-            $(document).on('click','.openGamerskyApp',function () {
+            $(document).on('tap','.openGamerskyApp',function () {
                 var $this = $(this),role = $this.attr('data-approle'),cid,rel = $this.attr('data-apprel');
                 if($this.hasClass('gsOpenAppHome') !== true){
                     if(role === 'content'){

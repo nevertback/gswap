@@ -101,6 +101,11 @@
             open:true,
             tid:'#gsTgWapIndexHeadlineBot',
             url:'wap/wap.headline.bot.v1.js'
+        },
+        {//wap内容页中按钮
+            open:true,
+            tid:'#gsTgWapGotoAppContentBtn',
+            url:'wap/wap.gotoappconbtn.v1.js'
         }
     ];
     function loadGsTgJs(tid,url) {
@@ -117,7 +122,10 @@
         }
     }
     var ntz = new Date().getTime();
-    $.getScript('http://ja2.gamersky.com/gs.common.income.wap.js',function () {
+    $.getScript('ja/gs.common.income.wap.js',function () {
         loadList();
     });
+    // $.getScript('//ja2.gamersky.com/gs.common.income.wap.js',function () {
+    //     loadList();
+    // });
 })(jQuery);
