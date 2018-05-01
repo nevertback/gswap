@@ -908,6 +908,7 @@ function removeYmwLoginPop() {
             })
         },
         writeBtn:function () {
+            var _this = this;
             if($(this.config.content.target).length>0){
                 this.contentBtn();
                 this.homeBtn('content',this.config.content.cid);
@@ -921,9 +922,17 @@ function removeYmwLoginPop() {
             }else{
                 this.homeBtn('home');
             }
-            if($(this.config.content.backtarget).length>0 || $(this.config.content.target).length>0){
-                this.relContentBtn();
+            /*
+             * 相关内容App引导(关闭|开启)
+             * openRelToApp(false|true)
+             */
+            function openRelToApp(isOpen) {
+                if(($(_this.config.content.backtarget).length>0 || $(_this.config.content.target).length>0) &&isOpen === true){
+                    _this.relContentBtn();
+                }
             }
+            openRelToApp(false);
+
         },
         bindClk:function () {
             var thObj = this;
