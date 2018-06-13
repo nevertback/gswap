@@ -2,12 +2,15 @@
     $.fn.cycm = function (options) {
         var cycm = "";
         $(".cy_comment").each(function () {
-            if (cycm != "") {
+            var $this = $(this);
+            if (cycm !== "") {
                 cycm = cycm + ","
             }
-            cycm = cycm + $(this).attr("data-sid");
+            if($this.attr('data-isloaded') !== 'loaded'){
+                cycm = cycm + $this.attr("data-sid");
+            }
         });
-        if (cycm != "") {
+        if (cycm !== "") {
             $.ajax({
                 type: "GET",
                 url: "//cm.gamersky.com/commentapi/count",
@@ -16,18 +19,10 @@
                     topic_source_id: cycm
                 },
                 success: function (responseJson) {
-                    $(".cy_comment").each(function () {
-                        if (responseJson.result.hasOwnProperty($(this).attr("data-sid"))) {
-                            var cmobj = responseJson.result[$(this).attr("data-sid")];
-                            if (($(this).attr("data-isconret"))=="true")
-                            {
-                                $(this).text(cmobj.comments);
-                            }
-                            else {
-                                $(this).text(cmobj.comments);
-                            }
-                           
-                        }
+                    $.each(responseJson.result,function (i,item) {
+                        $('.cy_comment[data-sid='+item.id+']')
+                            .attr('data-isloaded','loaded')
+                            .text(item.comments);
                     });
                 }
             });
