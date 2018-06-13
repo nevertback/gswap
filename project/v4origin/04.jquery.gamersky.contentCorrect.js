@@ -85,7 +85,7 @@ function loadJs(sid, jsurl, callback) {
             var $this = $(this);
             $this.click(function (event) {
                 event.preventDefault();
-                loadJs("uploadify", "http://j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
+                loadJs("uploadify", "//j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
                     var html = '<div class="ui-error-bj" style="display:none" ><div class="ui-error-hd"><a class="ui-error-close" href="javascript:">×</a></div><div class="ui-error-con"><div class="ui-error-tit"><span class="ui-error-text-1">标题：</span><span class="ui-error-nr"></span></div><div class="ui-error-ms"><span class="ui-error-text-2">描述：</span><div class="ui-error-textarea inputbj"><textarea class="tarea"></textarea></div></div><div class="ui-error-pic"><span class="ui-error-text" style="margin-left:30px;">上传图片 ：</span><div class="ui-error-b" style="margin-bottom:10px"><input id="buttonbj" style="display:none" name="error" type="file" multiple="false"></div><img src="" id="showPicture" /></div><div class="ui-error-phone"><span class="ui-error-text">电话：</span><div class="ui-error-input inputbj"><input type="text" class="input">	</div></div><div class="ui-error-mail">  <span class="ui-error-text">邮箱：</span> <div class="ui-error-input inputbj"><input type="text" class="input"></div>  </div>  <div class="ui-error-tj1">  <div class="tj1-botton"><a class="buttonbj" ></a></div>  </div>   <div class="ui-error-tj2">    <div class="tj2-botton"><a class="buttonbj"></a> </div> </div> </div></div>';
 
                     $.blockUI({
@@ -200,7 +200,7 @@ function loadJs(sid, jsurl, callback) {
             var $this = $(this);
             $this.click(function (event) {
                 event.preventDefault();
-                loadJs("uploadify", "http://j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
+                loadJs("uploadify", "//j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
                     var html = '<div class="ui-error-bj" style="display:none"><div class="ui-error-hd"><a class="ui-error-close" href="javascript:">×</a></div><div class="ui-error-con"><div class="ui-error-tit"><span class="ui-error-text-1">标题：</span><span class="ui-error-nr"></span></div><div class="ui-error-ms"><span class="ui-error-text-2">描述：</span><div class="ui-error-textarea inputbj"><textarea class="tarea"></textarea></div></div><div class="ui-error-pic"><span class="ui-error-text" style="margin-left:30px;">上传图片 ：</span><div class="ui-error-b" style="margin-bottom:10px" ><input id="buttonbj" style="display:none;" name="error" type="file" multiple="false"></div><img src="" id="showPicture" /></div><div class="ui-error-phone"><span class="ui-error-text">电话：</span><div class="ui-error-input inputbj"><input type="text" class="input">	</div></div><div class="ui-error-mail"><span class="ui-error-text">邮箱：</span> <div class="ui-error-input inputbj"><input type="text" class="input"></div>  </div>  <div class="ui-error-tj1">  <div class="tj1-botton"><a class="buttonbj" ></a></div>  </div>   <div class="ui-error-tj2">    <div class="tj2-botton"><a class="buttonbj"></a> </div></div></div></div>';
 
                     $.blockUI({

@@ -10,7 +10,7 @@
         if (cycm != "") {
             $.ajax({
                 type: "GET",
-                url: "http://cm.gamersky.com/commentapi/count",
+                url: "//cm.gamersky.com/commentapi/count",
                 dataType: "jsonp",
                 data: {
                     topic_source_id: cycm
@@ -39,7 +39,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetHits.aspx",
+                url: "//click.gamersky.com/Common/GetHits.aspx",
                 data: {
                     id: $this.attr("generalId"),
                     script: "3"
@@ -57,7 +57,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetWapHits.aspx",
+                url: "//click.gamersky.com/Common/GetWapHits.aspx",
                 data: {
                     id: $this.attr("generalId"), script:3,
                 },
@@ -73,7 +73,7 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://db5.gamersky.com/HitShouYou.aspx",
+            url: "//db5.gamersky.com/HitShouYou.aspx",
             data: { 'ID': itemid, 'fieldname': fieldname },
             success: function (data) {
                 $(".wapandroid").html(data.body);
@@ -86,7 +86,7 @@
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://db5.gamersky.com/HitShouYou.aspx",
+            url: "//db5.gamersky.com/HitShouYou.aspx",
             data: { 'ID': itemid, 'fieldname': fieldname },
             success: function (data) {
                 $(".Ios").html(data.body);
@@ -138,7 +138,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetHits.aspx",
+                url: "//click.gamersky.com/Common/GetHits.aspx",
                 data: { id: $this.attr("data-itemid"), script: "3", hot: hot, fieldName: fieldName, judge: judge },
                 success: function (data) { }
             });

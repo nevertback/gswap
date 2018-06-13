@@ -14,7 +14,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "http://db2.gamersky.com/ContentAjaxNew.aspx",
+                url: "//db2.gamersky.com/ContentAjaxNew.aspx",
                 dataType: "jsonp",
                 data: {
                     jsondata: JSON2.stringify({ type: "getcorrelation", GeneralId: op.GeneralId, NodeId: op.NodeId, Top: op.Top, TableName: op.TableName })
@@ -66,7 +66,7 @@
             var ganeralId = $this.attr("data-ganeralId");
             $.ajax({
                 type: "POST",
-                url: "http://db2.gamersky.com/ContentAjaxNew.aspx",
+                url: "//db2.gamersky.com/ContentAjaxNew.aspx",
                 dataType: "jsonp",
                 data: {
                     jsondata: JSON2.stringify({ type: "getcontenthot", GeneralId:ganeralId})

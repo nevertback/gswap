@@ -8,7 +8,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/ContentVoteJsonp.aspx",
+                url: "//db5.gamersky.com/ContentVoteJsonp.aspx",
                 data: {
                     id: generalId, a: "0"
                 },
@@ -53,7 +53,7 @@
                             $.ajax({
                                 type: "GET",
                                 dataType: "jsonp",
-                                url: "http://db5.gamersky.com/ContentVoteJsonp.aspx",
+                                url: "//db5.gamersky.com/ContentVoteJsonp.aspx",
                                 data: {
                                     id: generalId, a: "1", v: v
                                 },
@@ -85,7 +85,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/VoteJson.aspx",
+                url: "//db5.gamersky.com/VoteJson.aspx",
                 data: {
                     id: generalId, a: "init"
                 },
@@ -119,7 +119,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://db5.gamersky.com/VoteJson.aspx",
+                    url: "//db5.gamersky.com/VoteJson.aspx",
                     data: {
                         id: generalId, a: "vote", p: $votebtn.attr("data-point")
                     },

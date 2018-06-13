@@ -772,7 +772,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://click.gamersky.com/Common/GetHits.aspx",
+                    url: "//click.gamersky.com/Common/GetHits.aspx",
                     data: {
                         id: $this.attr("itemid"),
                         script: "3",
@@ -785,7 +785,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://db4.gamersky.com/Common/ShowDownloadUrlJsonp.aspx",
+                    url: "//db4.gamersky.com/Common/ShowDownloadUrlJsonp.aspx",
                     data: {
                         urlid: $this.attr("urlid"),
                         id: $this.attr("itemid")
@@ -905,7 +905,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $this.attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -945,7 +945,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $this.attr("data-generalId"), 'Sorce': $this.attr("data-sorce"), 'Type': $this.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -984,7 +984,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $this.attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -1024,7 +1024,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $this.attr("data-generalId"), 'Sorce': $this.attr("data-sorce"), 'Type': $this.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -1062,7 +1062,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/grade",
+                url: "//i.gamersky.com/apirating/grade",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.RatingUrl != "") {
@@ -1093,7 +1093,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/initgroup",
+                url: "//i.gamersky.com/apirating/initgroup",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingGroupType': types, 'Action': "initGroup" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -1163,7 +1163,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $thisAction.attr("data-generalId"), 'Sorce': $thisAction.attr("data-sorce"), 'Type': $thisAction.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -1221,7 +1221,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/initgroup",
+                    url: "//i.gamersky.com/apirating/initgroup",
                     data: { 'generalId': generalid, 'ratingGroupType': types, 'Action': "initGroup" },
                     success: function (data) {
                         if (data.length = 1) {
@@ -1242,7 +1242,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/grade",
+                url: "//i.gamersky.com/apirating/grade",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.EditorRating != "0") {
@@ -1257,7 +1257,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $(userrating).attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (!data.hasOwnProperty("status")) {
@@ -1275,7 +1275,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/initgroup",
+                url: "//i.gamersky.com/apirating/initgroup",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingGroupType': types, 'Action': "initGroup" },
                 success: function (data) {
                     if (!data.hasOwnProperty("status")) {
@@ -1327,7 +1327,7 @@ $(document).ready(function () {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $thisAction.attr("data-generalId"), 'Sorce': $thisAction.attr("data-sorce"), 'Type': $thisAction.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -1370,7 +1370,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/RatingJsonpAjax.aspx",
+                url: "//db5.gamersky.com/RatingJsonpAjax.aspx",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.RatingUrl != "") {
@@ -1483,7 +1483,7 @@ function loadJs(sid, jsurl, callback) {
             var $this = $(this);
             $this.click(function (event) {
                 event.preventDefault();
-                loadJs("uploadify", "http://j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
+                loadJs("uploadify", "//j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
                     var html = '<div class="ui-error-bj" style="display:none" ><div class="ui-error-hd"><a class="ui-error-close" href="javascript:">×</a></div><div class="ui-error-con"><div class="ui-error-tit"><span class="ui-error-text-1">标题：</span><span class="ui-error-nr"></span></div><div class="ui-error-ms"><span class="ui-error-text-2">描述：</span><div class="ui-error-textarea inputbj"><textarea class="tarea"></textarea></div></div><div class="ui-error-pic"><span class="ui-error-text" style="margin-left:30px;">上传图片 ：</span><div class="ui-error-b" style="margin-bottom:10px"><input id="buttonbj" style="display:none" name="error" type="file" multiple="false"></div><img src="" id="showPicture" /></div><div class="ui-error-phone"><span class="ui-error-text">电话：</span><div class="ui-error-input inputbj"><input type="text" class="input">	</div></div><div class="ui-error-mail">  <span class="ui-error-text">邮箱：</span> <div class="ui-error-input inputbj"><input type="text" class="input"></div>  </div>  <div class="ui-error-tj1">  <div class="tj1-botton"><a class="buttonbj" ></a></div>  </div>   <div class="ui-error-tj2">    <div class="tj2-botton"><a class="buttonbj"></a> </div> </div> </div></div>';
 
                     $.blockUI({
@@ -1598,7 +1598,7 @@ function loadJs(sid, jsurl, callback) {
             var $this = $(this);
             $this.click(function (event) {
                 event.preventDefault();
-                loadJs("uploadify", "http://j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
+                loadJs("uploadify", "//j.gamersky.com/Uploadify/jquery.uploadify.js", function () {
                     var html = '<div class="ui-error-bj" style="display:none"><div class="ui-error-hd"><a class="ui-error-close" href="javascript:">×</a></div><div class="ui-error-con"><div class="ui-error-tit"><span class="ui-error-text-1">标题：</span><span class="ui-error-nr"></span></div><div class="ui-error-ms"><span class="ui-error-text-2">描述：</span><div class="ui-error-textarea inputbj"><textarea class="tarea"></textarea></div></div><div class="ui-error-pic"><span class="ui-error-text" style="margin-left:30px;">上传图片 ：</span><div class="ui-error-b" style="margin-bottom:10px" ><input id="buttonbj" style="display:none;" name="error" type="file" multiple="false"></div><img src="" id="showPicture" /></div><div class="ui-error-phone"><span class="ui-error-text">电话：</span><div class="ui-error-input inputbj"><input type="text" class="input">	</div></div><div class="ui-error-mail"><span class="ui-error-text">邮箱：</span> <div class="ui-error-input inputbj"><input type="text" class="input"></div>  </div>  <div class="ui-error-tj1">  <div class="tj1-botton"><a class="buttonbj" ></a></div>  </div>   <div class="ui-error-tj2">    <div class="tj2-botton"><a class="buttonbj"></a> </div></div></div></div>';
 
                     $.blockUI({
@@ -1764,7 +1764,7 @@ function loadJs(sid, jsurl, callback) {
 
             $.ajax({
                 type: "POST",
-                url: "http://db2.gamersky.com/ContentAjaxNew.aspx",
+                url: "//db2.gamersky.com/ContentAjaxNew.aspx",
                 dataType: "jsonp",
                 data: {
                     jsondata: JSON2.stringify({ type: "getcorrelation", GeneralId: op.GeneralId, NodeId: op.NodeId, Top: op.Top, TableName: op.TableName })
@@ -1816,7 +1816,7 @@ function loadJs(sid, jsurl, callback) {
             var ganeralId = $this.attr("data-ganeralId");
             $.ajax({
                 type: "POST",
-                url: "http://db2.gamersky.com/ContentAjaxNew.aspx",
+                url: "//db2.gamersky.com/ContentAjaxNew.aspx",
                 dataType: "jsonp",
                 data: {
                     jsondata: JSON2.stringify({ type: "getcontenthot", GeneralId:ganeralId})
@@ -1849,7 +1849,7 @@ function loadJs(sid, jsurl, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/ContentVoteJsonp.aspx",
+                url: "//db5.gamersky.com/ContentVoteJsonp.aspx",
                 data: {
                     id: generalId, a: "0"
                 },
@@ -1894,7 +1894,7 @@ function loadJs(sid, jsurl, callback) {
                             $.ajax({
                                 type: "GET",
                                 dataType: "jsonp",
-                                url: "http://db5.gamersky.com/ContentVoteJsonp.aspx",
+                                url: "//db5.gamersky.com/ContentVoteJsonp.aspx",
                                 data: {
                                     id: generalId, a: "1", v: v
                                 },
@@ -1926,7 +1926,7 @@ function loadJs(sid, jsurl, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/VoteJson.aspx",
+                url: "//db5.gamersky.com/VoteJson.aspx",
                 data: {
                     id: generalId, a: "init"
                 },
@@ -1960,7 +1960,7 @@ function loadJs(sid, jsurl, callback) {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://db5.gamersky.com/VoteJson.aspx",
+                    url: "//db5.gamersky.com/VoteJson.aspx",
                     data: {
                         id: generalId, a: "vote", p: $votebtn.attr("data-point")
                     },
@@ -2012,7 +2012,7 @@ function loadJs(sid, jsurl, callback) {
         if (cycm != "") {
             $.ajax({
                 type: "GET",
-                url: "http://cm.gamersky.com/commentapi/count",
+                url: "//cm.gamersky.com/commentapi/count",
                 dataType: "jsonp",
                 data: {
                     topic_source_id: cycm
@@ -2041,7 +2041,7 @@ function loadJs(sid, jsurl, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetHits.aspx",
+                url: "//click.gamersky.com/Common/GetHits.aspx",
                 data: {
                     id: $this.attr("generalId"),
                     script: "3"
@@ -2059,7 +2059,7 @@ function loadJs(sid, jsurl, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetWapHits.aspx",
+                url: "//click.gamersky.com/Common/GetWapHits.aspx",
                 data: {
                     id: $this.attr("generalId"), script:3,
                 },
@@ -2075,7 +2075,7 @@ function loadJs(sid, jsurl, callback) {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://db5.gamersky.com/HitShouYou.aspx",
+            url: "//db5.gamersky.com/HitShouYou.aspx",
             data: { 'ID': itemid, 'fieldname': fieldname },
             success: function (data) {
                 $(".wapandroid").html(data.body);
@@ -2088,7 +2088,7 @@ function loadJs(sid, jsurl, callback) {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://db5.gamersky.com/HitShouYou.aspx",
+            url: "//db5.gamersky.com/HitShouYou.aspx",
             data: { 'ID': itemid, 'fieldname': fieldname },
             success: function (data) {
                 $(".Ios").html(data.body);
@@ -2140,7 +2140,7 @@ function loadJs(sid, jsurl, callback) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://click.gamersky.com/Common/GetHits.aspx",
+                url: "//click.gamersky.com/Common/GetHits.aspx",
                 data: { id: $this.attr("data-itemid"), script: "3", hot: hot, fieldName: fieldName, judge: judge },
                 success: function (data) { }
             });
@@ -2162,7 +2162,7 @@ var _config = {
 ///<reference path="00.json2.js"/>
 ///<reference path="01.video.js"/>
 (function ($) {
-    var labelJsonpUrl = "http://db5.gamersky.com/LabelJsonpAjax.aspx";
+    var labelJsonpUrl = "//db5.gamersky.com/LabelJsonpAjax.aspx";
     $.fn.supportMeInit = function (options) {
         return this.each(function () {        
             var $this = $(this);
@@ -2272,7 +2272,7 @@ var _config = {
 ///<reference path="01.video.js"/>
 
 (function ($) {
-    var labelJsonpUrl = "http://db5.gamersky.com/LabelJsonpAjax.aspx";
+    var labelJsonpUrl = "//db5.gamersky.com/LabelJsonpAjax.aspx";
 
     function isMobile() {
         var sUserAgent = navigator.userAgent.toLowerCase(),
@@ -2315,7 +2315,7 @@ var _config = {
                         play_url = 'http://static.youku.com/v1.0.0222/v/swf/player.swf?VideoIDS=' + vid;
                         flashvars += '&isShowRelatedVideo=false&amp;showAd=0&amp;show_pre=1&amp;show_next=1&amp;VideoIDS=' + vid + '&amp;isAutoPlay=true&amp;isDebug=false&amp;UserID=&amp;winType=interior&amp;playMovie=true&amp;RecordCode=1001,1002,1003,1004,1005,1006,2001,3001,3002,3003,3004,3005,3007,3008,9999';
                         iframe = true;
-                        iframeUrl = "http://player.youku.com/embed/" + vid;
+                        iframeUrl = "//player.youku.com/embed/" + vid;
                         break;
                     case 'tudou':
                         var digit_regex = /^\d+$/;
@@ -2329,12 +2329,12 @@ var _config = {
                                 }
                                 else {
                                     iframe = true;
-                                    iframeUrl = "http://www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
+                                    iframeUrl = "//www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
                                 }
                             }
                             else {
                                 iframe = true;
-                                iframeUrl = "http://www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
+                                iframeUrl = "//www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
                             }
                         }
                         break;
@@ -2343,10 +2343,10 @@ var _config = {
                         play_url = 'http://js.tudouui.com/bin/lingtong/PortalPlayer_60.swf?tvcCode=-1&hd=2&iid=' + vid;
                         break;
                     case 'ku6':
-                        play_url = "http://player.ku6cdn.com/default/out/pv201109151705.swf?ver=108&vid=" + vid + "&type=v&referer=";
+                        play_url = "//player.ku6cdn.com/default/out/pv201109151705.swf?ver=108&vid=" + vid + "&type=v&referer=";
                         break;
                     case 'sina':
-                        play_url = "http://p.you.video.sina.com.cn/swf/bokePlayer20130723_V4_1_42_21.swf?vid=" + vid + "&clip_id=&imgurl=&auto=1&vblog=1&type=0&tabad=1&autoLoad=1&autoPlay=1&as=0&tjAD=0&tj=0&casualPlay=1&head=0&logo=0&share=0";
+                        play_url = "//p.you.video.sina.com.cn/swf/bokePlayer20130723_V4_1_42_21.swf?vid=" + vid + "&clip_id=&imgurl=&auto=1&vblog=1&type=0&tabad=1&autoLoad=1&autoPlay=1&as=0&tjAD=0&tj=0&casualPlay=1&head=0&logo=0&share=0";
                         break;
                     case 'qq':
                         play_url = 'http://mat1.qq.com/news/act3/js/QQPlayer3.swf?vid=' + vid + '&skin=http://mat1.qq.com/news/act3/js/skins/QQPlayerSkin.swf&autoplay=1'
@@ -2393,7 +2393,7 @@ var _config = {
                         play_url = 'http://static.acfun.mm111.net/player/ACFlashPlayer.out.swf?type=page&url=http://www.acfun.tv/v/' + vid;
                         break;
                     case 'bi':
-                        play_url = "http://static.hdslb.com/miniloader.swf?aid=" + vid + "&page=1";
+                        play_url = "//static.hdslb.com/miniloader.swf?aid=" + vid + "&page=1";
                         break;
                     default:
                         play_url = vid;
@@ -2915,7 +2915,7 @@ var ymwapJs = {
                     $.ajax({
                         type: "GET",
                         dataType: "jsonp",
-                        url: "http://db5.gamersky.com/RatingJsonpAjax.aspx",
+                        url: "//db5.gamersky.com/RatingJsonpAjax.aspx",
                         data: {
                             'Rating': JSON2.stringify({
                                 "GenneralId": TT,
@@ -3025,7 +3025,7 @@ var ymwapJs = {
         };
         $.ajax({
             type: 'GET',
-            url: "http://db2.gamersky.com/WapAjax.aspx",
+            url: "//db2.gamersky.com/WapAjax.aspx",
             data: {
                 json: JSON2.stringify(data), jsondata: "getdhsets"
             },
@@ -3284,7 +3284,7 @@ var ymwapJs = {
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/WapAjax.aspx",
+                url: "//db2.gamersky.com/WapAjax.aspx",
                 data: {
                     json: JSON2.stringify(data), jsondata: "putlabelbody"
                 },
@@ -3342,10 +3342,10 @@ var ymwapJs = {
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器            
         $('.ymwSyLink').each(function(){
             if (isAndroid == true) {
-                $(this).attr("href", "http://wap.gamersky.com/shouyou/android/");
+                $(this).attr("href", "//wap.gamersky.com/shouyou/android/");
             }
             else {
-                $(this).attr("href", "http://wap.gamersky.com/shouyou/ios/");
+                $(this).attr("href", "//wap.gamersky.com/shouyou/ios/");
             }
         });
     },
@@ -3441,7 +3441,7 @@ var ymwapJs = {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/api/logincheck",
+                url: "//i.gamersky.com/api/logincheck",
                 success: function(responseJson) {
                     if (responseJson.status == "ok") {
                         btnTouches()
@@ -3471,7 +3471,7 @@ var ymwapJs = {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: {
                         Rating: JSON2.stringify({ GenneralId: dataid, Sorce: num, Type: dataType }), Action: "rating"
                     },
@@ -3500,7 +3500,7 @@ var ymwapJs = {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "http://i.gamersky.com/apirating/getcontentratingloginfo",
+            url: "//i.gamersky.com/apirating/getcontentratingloginfo",
             data: {
                 'generalId': TT
             },
@@ -3529,7 +3529,7 @@ var ymwapJs = {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/initgroup",
+                url: "//i.gamersky.com/apirating/initgroup",
                 data: {
                     'generalId': lkId,
                     'ratingGroupType': lkType,
@@ -3552,7 +3552,7 @@ var ymwapJs = {
                     $.ajax({
                         type: "GET",
                         dataType: "jsonp",
-                        url: "http://i.gamersky.com/apirating/rating",
+                        url: "//i.gamersky.com/apirating/rating",
                         data: {
                             'Rating': JSON2.stringify({
                                 "GenneralId": lkId,
@@ -3635,7 +3635,7 @@ var ymwapJs = {
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/initgroup",
+                    url: "//i.gamersky.com/apirating/initgroup",
                     data: {'generalId': generalId,'ratingGroupType': 5,'Action': "initGroup"},
                     success: function(data) {
                         if (!data.hasOwnProperty("status")){
@@ -3654,7 +3654,7 @@ var ymwapJs = {
                         $.ajax({
                             type: "GET",
                             dataType: "jsonp",
-                            url: "http://i.gamersky.com/apirating/rating",
+                            url: "//i.gamersky.com/apirating/rating",
                             data: {'Rating':JSON2.stringify({ "GenneralId": generalId,'Sorce': 1,'Type':5}),'Action':"rating" },
                             success: function (data) {
                                 if (data.hasOwnProperty("status")) {
@@ -3688,7 +3688,7 @@ var ymwapJs = {
             $.ajax({
                 type: 'GET',
                 async:false,
-                url: "http://db2.gamersky.com/LabelJsonpAjax.aspx",
+                url: "//db2.gamersky.com/LabelJsonpAjax.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -3954,7 +3954,7 @@ var ymwapJs = {
             'touchstart': function (e) {
                 if ($(".ymw_zp_pf_wd").attr("date-selltime") == "未上市") { alert("该游戏未上市！"); return false; }
                 $.ajax({
-                    type: "GET", dataType: "jsonp", url: "http://i.gamersky.com/api/logincheck",
+                    type: "GET", dataType: "jsonp", url: "//i.gamersky.com/api/logincheck",
                     success: function (responseJson) {
                         if (responseJson.status == "ok") {                           
                             touchSelectStars(e);
@@ -4190,7 +4190,7 @@ var ymwapJs = {
                         $.ajax({
                             type: "GET",
                             dataType: "jsonp",
-                            url: "http://click.gamersky.com/Common/GetHits.aspx",
+                            url: "//click.gamersky.com/Common/GetHits.aspx",
                             data: {
                                 id: hid,
                                 script: "3"
@@ -4225,7 +4225,7 @@ var ymwapDataJs={
         if (cycm != "") {
             $.ajax({
                 type: "GET",
-                url: "http://cm.gamersky.com/commentapi/count",
+                url: "//cm.gamersky.com/commentapi/count",
                 dataType: "jsonp",
                 data: {
                     topic_source_id: cycm
@@ -4259,7 +4259,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/LabelJsonpAjax.aspx",
+                url: "//db2.gamersky.com/LabelJsonpAjax.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -4340,7 +4340,7 @@ var ymwapDataJs={
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db2.gamersky.com/LabelJsonpAjax.aspx",
+                url: "//db2.gamersky.com/LabelJsonpAjax.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -4402,7 +4402,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/WapAjax.aspx",
+                url: "//db2.gamersky.com/WapAjax.aspx",
                 data: {
                     json: JSON2.stringify(data), jsondata: "putlabelbody"
                 },
@@ -4451,7 +4451,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/WapAjax.aspx",
+                url: "//db2.gamersky.com/WapAjax.aspx",
                 data: {
                     json: JSON2.stringify(data), jsondata: "putlabelbody"
                 },
@@ -4521,7 +4521,7 @@ var ymwapDataJs={
             }
             if (searchText != "" && searchText != defSecTxt) {
                 searchText = encodeURIComponent(searchText.replace("<", "").replace(">", ""));
-                window.location.href = "http://wap.gamersky.com/" + node + "/search.html?keyword=" + searchText + "";
+                window.location.href = "//wap.gamersky.com/" + node + "/search.html?keyword=" + searchText + "";
             }
         }
     },
@@ -4602,7 +4602,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/LabelJsonpAjax.aspx",
+                url: "//db2.gamersky.com/LabelJsonpAjax.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -4656,7 +4656,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/LabelJsonpAjax.aspx",
+                url: "//db2.gamersky.com/LabelJsonpAjax.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -4718,7 +4718,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/WapAjax.aspx",
+                url: "//db2.gamersky.com/WapAjax.aspx",
                 data: {
                     json: JSON2.stringify(data), jsondata: "putlabelbody"
                 },
@@ -4769,7 +4769,7 @@ var ymwapDataJs={
             };
             $.ajax({
                 type: 'GET',
-                url: "http://db2.gamersky.com/TemplateJsonp.aspx",
+                url: "//db2.gamersky.com/TemplateJsonp.aspx",
                 data: {
                     jsondata: JSON2.stringify(jsondata)
                 },
@@ -4873,7 +4873,7 @@ var ymwapDataJs={
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: {
                     'generalId': gid,
                     'ratingType': 0,

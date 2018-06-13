@@ -3,7 +3,7 @@
 ///<reference path="01.video.js"/>
 
 (function ($) {
-    var labelJsonpUrl = "http://db5.gamersky.com/LabelJsonpAjax.aspx";
+    var labelJsonpUrl = "//db5.gamersky.com/LabelJsonpAjax.aspx";
 
     function isMobile() {
         var sUserAgent = navigator.userAgent.toLowerCase(),
@@ -46,7 +46,7 @@
                         play_url = 'http://static.youku.com/v1.0.0222/v/swf/player.swf?VideoIDS=' + vid;
                         flashvars += '&isShowRelatedVideo=false&amp;showAd=0&amp;show_pre=1&amp;show_next=1&amp;VideoIDS=' + vid + '&amp;isAutoPlay=true&amp;isDebug=false&amp;UserID=&amp;winType=interior&amp;playMovie=true&amp;RecordCode=1001,1002,1003,1004,1005,1006,2001,3001,3002,3003,3004,3005,3007,3008,9999';
                         iframe = true;
-                        iframeUrl = "http://player.youku.com/embed/" + vid;
+                        iframeUrl = "//player.youku.com/embed/" + vid;
                         break;
                     case 'tudou':
                         var digit_regex = /^\d+$/;
@@ -60,12 +60,12 @@
                                 }
                                 else {
                                     iframe = true;
-                                    iframeUrl = "http://www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
+                                    iframeUrl = "//www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
                                 }
                             }
                             else {
                                 iframe = true;
-                                iframeUrl = "http://www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
+                                iframeUrl = "//www.tudou.com/programs/view/html5embed.action?code=" + vid.replace("code:", "") + "&autoPlay=true";
                             }
                         }
                         break;
@@ -74,10 +74,10 @@
                         play_url = 'http://js.tudouui.com/bin/lingtong/PortalPlayer_60.swf?tvcCode=-1&hd=2&iid=' + vid;
                         break;
                     case 'ku6':
-                        play_url = "http://player.ku6cdn.com/default/out/pv201109151705.swf?ver=108&vid=" + vid + "&type=v&referer=";
+                        play_url = "//player.ku6cdn.com/default/out/pv201109151705.swf?ver=108&vid=" + vid + "&type=v&referer=";
                         break;
                     case 'sina':
-                        play_url = "http://p.you.video.sina.com.cn/swf/bokePlayer20130723_V4_1_42_21.swf?vid=" + vid + "&clip_id=&imgurl=&auto=1&vblog=1&type=0&tabad=1&autoLoad=1&autoPlay=1&as=0&tjAD=0&tj=0&casualPlay=1&head=0&logo=0&share=0";
+                        play_url = "//p.you.video.sina.com.cn/swf/bokePlayer20130723_V4_1_42_21.swf?vid=" + vid + "&clip_id=&imgurl=&auto=1&vblog=1&type=0&tabad=1&autoLoad=1&autoPlay=1&as=0&tjAD=0&tj=0&casualPlay=1&head=0&logo=0&share=0";
                         break;
                     case 'qq':
                         play_url = 'http://mat1.qq.com/news/act3/js/QQPlayer3.swf?vid=' + vid + '&skin=http://mat1.qq.com/news/act3/js/skins/QQPlayerSkin.swf&autoplay=1'
@@ -124,7 +124,7 @@
                         play_url = 'http://static.acfun.mm111.net/player/ACFlashPlayer.out.swf?type=page&url=http://www.acfun.tv/v/' + vid;
                         break;
                     case 'bi':
-                        play_url = "http://static.hdslb.com/miniloader.swf?aid=" + vid + "&page=1";
+                        play_url = "//static.hdslb.com/miniloader.swf?aid=" + vid + "&page=1";
                         break;
                     default:
                         play_url = vid;

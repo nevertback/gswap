@@ -9,7 +9,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://click.gamersky.com/Common/GetHits.aspx",
+                    url: "//click.gamersky.com/Common/GetHits.aspx",
                     data: {
                         id: $this.attr("itemid"),
                         script: "3",
@@ -22,7 +22,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://db4.gamersky.com/Common/ShowDownloadUrlJsonp.aspx",
+                    url: "//db4.gamersky.com/Common/ShowDownloadUrlJsonp.aspx",
                     data: {
                         urlid: $this.attr("urlid"),
                         id: $this.attr("itemid")

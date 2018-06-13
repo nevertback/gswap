@@ -76,7 +76,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $this.attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -116,7 +116,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $this.attr("data-generalId"), 'Sorce': $this.attr("data-sorce"), 'Type': $this.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -155,7 +155,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $this.attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -195,7 +195,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $this.attr("data-generalId"), 'Sorce': $this.attr("data-sorce"), 'Type': $this.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -233,7 +233,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/grade",
+                url: "//i.gamersky.com/apirating/grade",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.RatingUrl != "") {
@@ -264,7 +264,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/initgroup",
+                url: "//i.gamersky.com/apirating/initgroup",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingGroupType': types, 'Action': "initGroup" },
                 success: function (data) {
                     if (data.hasOwnProperty("status")) {
@@ -334,7 +334,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $thisAction.attr("data-generalId"), 'Sorce': $thisAction.attr("data-sorce"), 'Type': $thisAction.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -392,7 +392,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/initgroup",
+                    url: "//i.gamersky.com/apirating/initgroup",
                     data: { 'generalId': generalid, 'ratingGroupType': types, 'Action': "initGroup" },
                     success: function (data) {
                         if (data.length = 1) {
@@ -413,7 +413,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/grade",
+                url: "//i.gamersky.com/apirating/grade",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.EditorRating != "0") {
@@ -428,7 +428,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/init",
+                url: "//i.gamersky.com/apirating/init",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingType': $(userrating).attr("data-type"), 'Action': "init" },
                 success: function (data) {
                     if (!data.hasOwnProperty("status")) {
@@ -446,7 +446,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://i.gamersky.com/apirating/initgroup",
+                url: "//i.gamersky.com/apirating/initgroup",
                 data: { 'generalId': $this.attr("data-generalId"), 'ratingGroupType': types, 'Action': "initGroup" },
                 success: function (data) {
                     if (!data.hasOwnProperty("status")) {
@@ -498,7 +498,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "jsonp",
-                    url: "http://i.gamersky.com/apirating/rating",
+                    url: "//i.gamersky.com/apirating/rating",
                     data: { 'Rating': JSON2.stringify({ "GenneralId": $thisAction.attr("data-generalId"), 'Sorce': $thisAction.attr("data-sorce"), 'Type': $thisAction.attr("data-type") }), 'Action': "rating" },
                     success: function (data) {
                         if (data.hasOwnProperty("status")) {
@@ -541,7 +541,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "http://db5.gamersky.com/RatingJsonpAjax.aspx",
+                url: "//db5.gamersky.com/RatingJsonpAjax.aspx",
                 data: { 'generalId': $this.attr("data-generalId"), 'Action': "grade" },
                 success: function (data) {
                     if (data.EditorRating != "" && data.RatingUrl != "") {

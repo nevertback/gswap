@@ -5,7 +5,7 @@
 ///<reference path="00.json2.js"/>
 ///<reference path="01.video.js"/>
 (function ($) {
-    var labelJsonpUrl = "http://db5.gamersky.com/LabelJsonpAjax.aspx";
+    var labelJsonpUrl = "//db5.gamersky.com/LabelJsonpAjax.aspx";
     $.fn.supportMeInit = function (options) {
         return this.each(function () {        
             var $this = $(this);
