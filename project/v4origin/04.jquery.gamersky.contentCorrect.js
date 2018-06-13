@@ -109,12 +109,12 @@ function loadJs(sid, jsurl, callback) {
                             $(".ui-error-tit .ui-error-nr").text($("#jcjbContentData").attr("title"));
                             $("#buttonbj").uploadify({
                                 'swf': '/js/Uploadify/uploadify.swf',
-                                'uploader': 'http://up.gamersky.com/ReportUpload.php',
+                                'uploader': '//up.gamersky.com/ReportUpload.php',
                                 'auto': true,
                                 'multi': false,
                                 'buttonText': '选择',
                                 'fileSizeLimit': '10MB',
-                                'buttonImage': 'http://j.gamersky.com/Uploadify/select.jpg',
+                                'buttonImage': '//j.gamersky.com/Uploadify/select.jpg',
                                 'fileTypeExts': '*.jpg;*.jpge;*.gif;*.png',
                                 'wmode': 'transparent',
                                 'width': 79,
@@ -159,7 +159,7 @@ function loadJs(sid, jsurl, callback) {
                                 CorrectInfo.IsReport = 0;
                                 CorrectInfo.State = 999;
                                 $.ajax({
-                                    url: 'http://db5.gamersky.com/CorrectReport.aspx',
+                                    url: '//db5.gamersky.com/CorrectReport.aspx',
                                     type: "get",
                                     data: { 'ContentData': JSON2.stringify(CorrectInfo) },
                                     dataType: 'jsonp',
@@ -224,12 +224,12 @@ function loadJs(sid, jsurl, callback) {
                             $(".ui-error-tit .ui-error-nr").text($("#jcjbContentData").attr("title"));
                             $("#buttonbj").uploadify({
                                 'swf': '/js/Uploadify/uploadify.swf',
-                                'uploader': 'http://up.gamersky.com/ReportUpload.php',
+                                'uploader': '//up.gamersky.com/ReportUpload.php',
                                 'auto': true,
                                 'multi': false,
                                 'buttonText': '选择',
                                 'fileSizeLimit': '10MB',
-                                'buttonImage': 'http://j.gamersky.com/Uploadify/select.jpg',
+                                'buttonImage': '//j.gamersky.com/Uploadify/select.jpg',
                                 'fileTypeExts': '*.jpg;*.jpge;*.gif;*.png',
                                 'wmode': 'transparent',
                                 'width': 79,
@@ -276,7 +276,7 @@ function loadJs(sid, jsurl, callback) {
                                 ContentData.IsReport = 1;
                                 ContentData.IsInit = 1;
                                 $.ajax({
-                                    url: 'http://db5.gamersky.com/CorrectReport.aspx',
+                                    url: '//db5.gamersky.com/CorrectReport.aspx',
                                     type: "get",
                                     data: { 'ContentData': JSON2.stringify(ContentData) },
                                     dataType: 'jsonp',
@@ -320,7 +320,7 @@ function loadJs(sid, jsurl, callback) {
             $this.click(function (event) {
                 event.preventDefault();
                 $.ajax({
-                    url: 'http://i.gamersky.com/api/addcollect',
+                    url: '//i.gamersky.com/api/addcollect',
                     type: "get",
                     data: { "generalId": generalId },
                     dataType: 'jsonp',

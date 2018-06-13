@@ -144,7 +144,7 @@ var _config = {
     sso: {
         onlySSO: true
     },
-    registerUrl: 'http://i.gamersky.com/user/register/',
+    registerUrl: '//i.gamersky.com/user/register/',
     hide_face: 1,
     showFloorNum: 1
 };

@@ -1025,13 +1025,13 @@ var ymwapJs = {
         likeFun()
     },
     ymwListJxFunc:function(){
-        var $list = $('.ymwListJx'),listData,moreBtn = $('.ymwListJxMore'),lazyLoadImgHolder = 'http://image.gamersky.com/webimg13/loadpic.gif';
+        var $list = $('.ymwListJx'),listData,moreBtn = $('.ymwListJxMore'),lazyLoadImgHolder = '//image.gamersky.com/webimg13/loadpic.gif';
         var listSet = {
             templatekey:$list.attr('templatekey'),
             id:0,
             nodeid:$list.attr('data-nodeid'),
             page:$list.attr('data-page'),
-            nodes:$list.attr('nodes'),
+            nodes:$list.attr('nodes')
         }
         function addList(baseData){
             var tmpDom = '',othersData,rens;
@@ -1043,7 +1043,7 @@ var ymwapJs = {
                     console.error(baseData.tit+"  “精选简介”字段有一个错误需要处理："+err);
                     othersData = {
                         subtitle:'',
-                        bigimg:'http://image.gamersky.com/webimg13/nopic.png'
+                        bigimg:'//image.gamersky.com/webimg13/nopic.png'
                     }
                     rens='';
                 }                
@@ -1051,7 +1051,7 @@ var ymwapJs = {
                 console.error(baseData.tit+"  “精选简介”字段数据为空");
                 othersData = {
                     subtitle:'',
-                    bigimg:'http://image.gamersky.com/webimg13/nopic.png'
+                    bigimg:'//image.gamersky.com/webimg13/nopic.png'
                 }
                 rens='';
             }
