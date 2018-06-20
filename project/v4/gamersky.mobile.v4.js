@@ -3623,24 +3623,31 @@ var ymwapJs = {
             tmpDom += '</li>';
             return tmpDom;
         }
+        function getLikeData(gid,$tar){
+            $.ajax({
+                type: "GET",
+                dataType: "jsonp",
+                url: "//i.gamersky.com/apirating/initgroup",
+                data: {'generalId': gid,'ratingGroupType': 5,'Action': "initGroup"},
+                success: function(data) {
+                    if (data.length>0){
+                        $tar.attr('data-isload','loaded').html(data[0].Times);
+                    }
+                },
+                error:function(err){
+                    $tar.html('请刷新')
+                }
+            });
+        }
         function likeFunc(){
             var $like = $('.ymwLike'),tips = "喜欢";
             $like.each(function(){
-                var $this = $(this),generalId = $this.attr("data-generalId"),cookieKey = "R" + generalId + "-5";
-                $.ajax({
-                    type: "GET",
-                    dataType: "jsonp",
-                    url: "//i.gamersky.com/apirating/initgroup",
-                    data: {'generalId': generalId,'ratingGroupType': 5,'Action': "initGroup"},
-                    success: function(data) {
-                        if (!data.hasOwnProperty("status")){
-                            $this.html(data[0].Times)
-                        }                        
-                    },
-                    error:function(err){
-                        $this.html('请刷新')
-                    }
-                });
+                var $this = $(this),
+                    generalId = $this.attr("data-generalId"),isLoaded = $this.attr('data-isload'),
+                    cookieKey = "R" + generalId + "-5";
+                if(isLoaded !== 'loaded'){
+                    getLikeData(generalId,$this);
+                }
                 if ($.fn.cookie(cookieKey) !== undefined && $.fn.cookie(cookieKey) !== null) {
                     $this.addClass('cur');
                 }else{
@@ -4863,42 +4870,42 @@ var ymwapDataJs={
         }
     },
     getUserScore:function(){
+        //todo:判断是否已加载
+        var ids = '';
         $('.ymwUserScoreShow').each(function() {
             var $this = $(this),
-                gid = $this.attr('data-generalId');
+                gid = $this.attr('data-generalId'),isLoaded = $this.attr('data-isload');
+            if(isLoaded !== 'loaded'){
+                if (ids !== '') {
+                    ids = ids + ","
+                }
+                ids = ids + gid;
+            }
+        });
+        function getScoreData(ids) {
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
-                url: "//i.gamersky.com/apirating/init",
+                url: "//cm1.gamersky.com/apirating/getarrayrating",
                 data: {
-                    'generalId': gid,
-                    'ratingType': 0,
-                    'Action': "init"
+                    'Idlist': ids
                 },
                 success: function(data) {
-                    if (data.hasOwnProperty("status")) {
-                        switch (data.status) {
-                            case "err":
-                                console.log("提交" + tips + "错误！");
-                                break;
-                            case "existuser":
-                            case "existip":
-                                console.log("已" + tips + "！");
-                                break;
-                            default:
-                                break;
-                        }
-                    } else {
-                        //$this.find('i').html('('+data.Times+'人参与)');
-                        var jsnum = Math.floor(data.Average);
-                        $this.addClass('ymw-star'+ jsnum).html('<span>('+data.Times+'人参与)</span>')
-                        //$this.html((data.Average == 10 ? "10" : data.Average.toFixed(1)) + '分<b>('+data.Times+')</b>');
+                    if(data.status === 'ok'){
+                        $.each(data.result,function (i,item) {
+                            var $tar = $('.ymwUserScoreShow[data-generalId='+item.gameId+']'),
+                                jsnum = Math.floor(item.average);
+                            $tar.attr('data-isload','loaded')
+                                .addClass('ymw-star'+ jsnum)
+                                .html('<span>('+item.times+'人参与)</span>');
+                        });
                     }
                 }
             });
-        });
+        }
+        getScoreData(ids);
     }
-}
+};
 ymwapJs.htmlAndroidiOs();
 ymwapJs.doJs($('#ymwHeaderSwp'),ymwapJs.indexNavNew);
 ymwapJs.doJs($('#gsGlList'),ymwapJs.gsListFunc);
